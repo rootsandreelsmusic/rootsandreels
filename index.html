@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Jamie White — Roots & Reels. Independent country singer-songwriter sharing a new original song every day." />
+  <meta name="theme-color" content="#f5eddd" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ae7622'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='22' font-weight='bold' text-anchor='middle' fill='%23fffaf0'%3ER%26R%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Roots & Reels — Official Site</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f5eddd;
+      --paper: #fffaf0;
+      --ink: #2b211a;
+      --muted: #6c5a4a;
+      --line: #cdbb9e;
+      --gold: #ae7622;
+      --gold-strong: #80500f;
+      --field: #30573f;
+      --field-soft: #d9e2d1;
+      --button-ink: #fffaf0;
+      --shadow: 0 22px 58px rgba(65, 43, 24, .13);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #17130f;
+        --paper: #231c16;
+        --ink: #fff6e8;
+        --muted: #d0bfa9;
+        --line: #58493a;
+        --gold: #d8a44f;
+        --gold-strong: #efc577;
+        --field: #92b59a;
+        --field-soft: #283c2c;
+        --button-ink: #17130f;
+        --shadow: 0 24px 65px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, transparent 0 49.8%, color-mix(in srgb, var(--line) 18%, transparent) 49.8% 50.2%, transparent 50.2%),
+        var(--page);
+      color: var(--ink);
+      font-family: "Work Sans", sans-serif;
+      line-height: 1.65;
+      min-width: 0;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+    .site-nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      gap: clamp(1rem, 3vw, 2.1rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .site-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav a:hover { color: var(--ink); border-color: var(--gold); }
+
+    main { overflow: hidden; }
+    .wrap {
+      width: min(100% - 2.5rem, 1080px);
+      margin-inline: auto;
+    }
+
+    .code-panel {
+      display: none;
+      width: min(100% - 2.5rem, 840px);
+      margin: .6rem auto 1rem;
+      padding: 1rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .code-panel.is-visible { display: block; }
+    .code-panel strong {
+      display: block;
+      font-family: "Libre Baskerville", serif;
+      font-size: .97rem;
+      margin-bottom: .55rem;
+    }
+    .code-row { display: flex; gap: .6rem; }
+    .code-row input {
+      flex: 1;
+      min-width: 0;
+      padding: .7rem .8rem;
+      color: var(--ink);
+      background: var(--page);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+    .copy-button {
+      border: 0;
+      border-radius: 2px;
+      padding: .7rem 1rem;
+      color: var(--button-ink);
+      background: var(--gold-strong);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .copy-status { min-height: 1.25rem; margin: .4rem 0 0; color: var(--muted); font-size: .8rem; }
+
+    .hero {
+      position: relative;
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 10vw, 8rem) 0 clamp(5rem, 11vw, 9rem);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: min(52vw, 550px);
+      aspect-ratio: 1;
+      right: max(-14vw, -130px);
+      top: 2.5rem;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .16;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 140px;
+      background: var(--field-soft);
+      clip-path: polygon(0 72%, 12% 54%, 24% 68%, 37% 42%, 51% 64%, 66% 36%, 80% 58%, 92% 32%, 100% 48%, 100% 100%, 0 100%);
+    }
+    .hero-content { position: relative; z-index: 1; width: min(900px, 100%); }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin: 0 0 1.25rem;
+      color: var(--gold-strong);
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .82rem;
+    }
+    .brand-mark::before { content: ""; width: 3.8rem; height: 2px; background: currentColor; }
+    h1, h2, h3 { font-family: "Libre Baskerville", serif; line-height: 1.12; }
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(4rem, 10vw, 8.7rem);
+      letter-spacing: -.06em;
+      font-weight: 700;
+    }
+    .tagline {
+      margin: 1.55rem 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      line-height: 1.5;
+    }
+    .socials { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: .72rem 1.15rem;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .socials a:first-child { background: var(--ink); color: var(--page); }
+    .socials a:hover { background: var(--gold-strong); border-color: var(--gold-strong); color: var(--button-ink); }
+
+    .about { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+    .about-inner { max-width: 680px; margin-inline: auto; text-align: center; }
+    .about-inner h2 {
+      margin: 0 0 1.1rem;
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      letter-spacing: -.03em;
+    }
+    .about-inner h2::after {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 3px;
+      margin: 1.1rem auto 0;
+      background: var(--gold);
+    }
+    .about-inner p { color: var(--muted); font-size: clamp(1.02rem, 1.6vw, 1.2rem); }
+    .about-inner p + p { margin-top: 1rem; }
+
+    section { scroll-margin-top: 1rem; }
+    .releases { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+    .section-intro {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: end;
+      margin-bottom: 2.5rem;
+    }
+    .section-intro h2, .legal-title h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+      letter-spacing: -.045em;
+    }
+    .section-intro p { margin: 0; color: var(--muted); max-width: 520px; }
+
+    .track-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    .track-list li {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      align-items: center;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+    }
+    .track-number { color: var(--gold-strong); font-family: "Libre Baskerville", serif; font-size: .85rem; }
+    .track-name { font-family: "Libre Baskerville", serif; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .035em; }
+
+    .legal {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(4.5rem, 9vw, 8rem) 0;
+    }
+    .legal + .legal { border-top: 0; }
+    .legal-grid {
+      display: grid;
+      grid-template-columns: minmax(230px, .8fr) minmax(0, 1.2fr);
+      gap: clamp(2.5rem, 8vw, 7rem);
+    }
+    .legal-label {
+      display: inline-block;
+      margin-top: .7rem;
+      color: var(--gold-strong);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .legal-copy { max-width: 650px; }
+    .legal-copy p { margin: 0 0 1.1rem; }
+    .legal-copy p:last-child { margin-bottom: 0; }
+    .contact {
+      display: inline-block;
+      padding-bottom: .1rem;
+      font-weight: 600;
+      color: var(--field);
+      border-bottom: 1px solid currentColor;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(100% - 2.5rem, 1080px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 700px) {
+      .site-nav { justify-content: center; padding-inline: 1rem; gap: 1rem; font-size: .8rem; }
+      .wrap, .code-panel, footer { width: min(100% - 2rem, 1080px); }
+      .hero { min-height: 600px; padding-top: 3.5rem; }
+      .hero::before { width: 76vw; right: -33vw; top: 1rem; }
+      .brand-mark::before { width: 2.2rem; }
+      h1 { font-size: clamp(3.8rem, 19vw, 6rem); }
+      .socials { display: grid; grid-template-columns: 1fr; }
+      .socials a { justify-content: center; }
+      .section-intro, .legal-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+      .track-list li { grid-template-columns: 2.8rem 1fr; min-height: 68px; }
+      .code-row { flex-direction: column; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Page navigation">
+    <a href="#about">About</a>
+    <a href="#releases">Releases</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#terms">Terms</a>
+  </nav>
+
+  <aside class="code-panel" id="codePanel" aria-live="polite">
+    <strong>TikTok authorization code</strong>
+    <div class="code-row">
+      <input id="authCode" type="text" readonly aria-label="TikTok authorization code" />
+      <button class="copy-button" id="copyCode" type="button">Copy code</button>
+    </div>
+    <p class="copy-status" id="copyStatus"></p>
+  </aside>
+
+  <main>
+    <section class="hero" aria-labelledby="artist-name">
+      <div class="wrap hero-content">
+        <p class="brand-mark">Roots &amp; Reels</p>
+        <h1 id="artist-name">Jamie White</h1>
+        <p class="tagline">Country singer-songwriter — a new original song every day.</p>
+        <div class="socials" aria-label="Listen and follow">
+          <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer">Listen on YouTube</a>
+          <a href="https://www.instagram.com/_jwhite97_" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
+          <a href="https://www.tiktok.com/@rootsreelsandfamily" target="_blank" rel="noopener noreferrer">Follow on TikTok</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-inner">
+        <h2 id="about-title">Hey y'all, I'm Jamie</h2>
+        <p>I'm an independent country singer-songwriter from the Florida panhandle, sharing a brand-new original song every single day. Every song is written from my life — the love, the loss, and everything in between.</p>
+        <p>Thanks for being here for the journey. We're just getting started. 💛</p>
+      </div>
+    </section>
+
+    <section class="releases" id="releases" aria-labelledby="releases-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 id="releases-title">Latest releases</h2>
+          <p>Original songs from Jamie White, rooted in country storytelling.</p>
+        </div>
+        <ol class="track-list">
+          <li><span class="track-number">01</span><span class="track-name">WINDOWS DOWN</span></li>
+          <li><span class="track-number">02</span><span class="track-name">GOLD FROM NOTHING</span></li>
+          <li><span class="track-number">03</span><span class="track-name">ROOTS &amp; RAIN</span></li>
+          <li><span class="track-number">04</span><span class="track-name">FINDING MYSELF</span></li>
+          <li><span class="track-number">05</span><span class="track-name">TOUCH THE SKY</span></li>
+          <li><span class="track-number">06</span><span class="track-name">NO MASTER PLAN</span></li>
+          <li><span class="track-number">07</span><span class="track-name">THREE STRIKES</span></li>
+          <li><span class="track-number">08</span><span class="track-name">PRAYING FOR LAND</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="legal" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap legal-grid">
+        <div class="legal-title">
+          <h2 id="privacy-title">Privacy Policy</h2>
+          <span class="legal-label">Roots and Reels Publisher</span>
+        </div>
+        <div class="legal-copy">
+          <p>Roots and Reels Publisher is a content-publishing tool by Jamie White. It is used solely to publish Jamie White’s own original music videos to her own TikTok account.</p>
+          <p>The app collects only the TikTok account authorization needed to publish that content. No data is sold or shared.</p>
+          <p>Privacy questions may be directed to <a class="contact" href="mailto:Secret_gurl70@yahoo.com">Secret_gurl70@yahoo.com</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal" id="terms" aria-labelledby="terms-title">
+      <div class="wrap legal-grid">
+        <div class="legal-title">
+          <h2 id="terms-title">Terms of Service</h2>
+          <span class="legal-label">Roots and Reels Publisher</span>
+        </div>
+        <div class="legal-copy">
+          <p>Roots and Reels Publisher is provided as-is for publishing the owner’s own content. The owner is responsible for the content published through the app.</p>
+          <p>TikTok’s own terms also apply to the use of TikTok and content published to the platform.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year">2026</span> Jamie White</span>
+    <span><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a></span>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById("year").textContent = new Date().getFullYear();
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get("code");
+      var panel = document.getElementById("codePanel");
+      var input = document.getElementById("authCode");
+      var button = document.getElementById("copyCode");
+      var status = document.getElementById("copyStatus");
+
+      if (code) {
+        input.value = code;
+        panel.classList.add("is-visible");
+      }
+
+      button.addEventListener("click", function () {
+        function copied() {
+          status.textContent = "Code copied.";
+          button.textContent = "Copied";
+          window.setTimeout(function () {
+            button.textContent = "Copy code";
+            status.textContent = "";
+          }, 2200);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(input.value).then(copied, function () {
+            input.focus();
+            input.select();
+            status.textContent = "Select the code and copy it manually.";
+          });
+        } else {
+          input.focus();
+          input.select();
+          try {
+            document.execCommand("copy");
+            copied();
+          } catch (error) {
+            status.textContent = "Select the code and copy it manually.";
+          }
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
