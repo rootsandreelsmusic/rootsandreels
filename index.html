@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="Jamie White — Roots & Reels. Independent country singer-songwriter sharing a new original song every day." />
-  <meta name="theme-color" content="#f5eddd" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ae7622'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='22' font-weight='bold' text-anchor='middle' fill='%23fffaf0'%3ER%26R%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -63,20 +62,32 @@
       position: relative;
       z-index: 2;
       display: flex;
-      justify-content: flex-end;
-      gap: clamp(1rem, 3vw, 2.1rem);
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
       max-width: 1160px;
       margin: 0 auto;
-      padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+      padding: .8rem clamp(1.25rem, 4vw, 3rem);
       font-size: .88rem;
       font-weight: 600;
     }
-    .site-nav a {
+    .nav-logo {
+      display: block;
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 5px 18px rgba(43, 33, 26, .18);
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.1rem); }
+    .site-nav a:not(.nav-logo-link) {
       color: var(--muted);
       text-decoration: none;
       border-bottom: 1px solid transparent;
     }
-    .site-nav a:hover { color: var(--ink); border-color: var(--gold); }
+    .site-nav a:not(.nav-logo-link):hover { color: var(--ink); border-color: var(--gold); }
+    .nav-logo-link { border: 0; text-decoration: none; }
 
     main { overflow: hidden; }
     .wrap {
@@ -123,21 +134,21 @@
 
     .hero {
       position: relative;
-      min-height: 650px;
+      min-height: 690px;
       display: grid;
       place-items: center;
-      padding: clamp(4rem, 10vw, 8rem) 0 clamp(5rem, 11vw, 9rem);
+      padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(5rem, 9vw, 8rem);
     }
     .hero::before {
       content: "";
       position: absolute;
-      width: min(52vw, 550px);
+      width: min(46vw, 520px);
       aspect-ratio: 1;
-      right: max(-14vw, -130px);
-      top: 2.5rem;
+      right: max(-10vw, -80px);
+      top: 1.75rem;
       border-radius: 50%;
       background: var(--gold);
-      opacity: .16;
+      opacity: .13;
     }
     .hero::after {
       content: "";
@@ -149,7 +160,40 @@
       background: var(--field-soft);
       clip-path: polygon(0 72%, 12% 54%, 24% 68%, 37% 42%, 51% 64%, 66% 36%, 80% 58%, 92% 32%, 100% 48%, 100% 100%, 0 100%);
     }
-    .hero-content { position: relative; z-index: 1; width: min(900px, 100%); }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .72fr);
+      align-items: center;
+      gap: clamp(2.5rem, 7vw, 6rem);
+    }
+    .hero-copy { min-width: 0; }
+    .hero-photo-wrap {
+      position: relative;
+      max-width: 410px;
+      margin: 0 0 0 auto;
+      padding: 10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transform: rotate(1.2deg);
+    }
+    .hero-photo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -13px 14px 15px -15px;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+    .hero-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.08) contrast(1.03) brightness(1.03);
+    }
     .brand-mark {
       display: flex;
       align-items: center;
@@ -166,7 +210,7 @@
     h1 {
       max-width: 840px;
       margin: 0;
-      font-size: clamp(4rem, 10vw, 8.7rem);
+      font-size: clamp(4rem, 8vw, 6.8rem);
       letter-spacing: -.06em;
       font-weight: 700;
     }
@@ -178,38 +222,24 @@
       font-size: clamp(1.15rem, 2vw, 1.55rem);
       line-height: 1.5;
     }
-    .socials { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+    .socials { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2rem; }
     .socials a {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      gap: .55rem;
       min-height: 46px;
-      padding: .72rem 1.15rem;
+      padding: .68rem .9rem;
       border: 1px solid var(--ink);
       border-radius: 2px;
       text-decoration: none;
+      font-size: .9rem;
       font-weight: 600;
       transition: background-color .18s ease, color .18s ease, border-color .18s ease;
     }
+    .socials svg { width: 19px; height: 19px; flex: 0 0 auto; fill: currentColor; }
     .socials a:first-child { background: var(--ink); color: var(--page); }
     .socials a:hover { background: var(--gold-strong); border-color: var(--gold-strong); color: var(--button-ink); }
-
-    .about { padding: clamp(3.5rem, 7vw, 6rem) 0; }
-    .about-inner { max-width: 680px; margin-inline: auto; text-align: center; }
-    .about-inner h2 {
-      margin: 0 0 1.1rem;
-      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-      letter-spacing: -.03em;
-    }
-    .about-inner h2::after {
-      content: "";
-      display: block;
-      width: 4rem;
-      height: 3px;
-      margin: 1.1rem auto 0;
-      background: var(--gold);
-    }
-    .about-inner p { color: var(--muted); font-size: clamp(1.02rem, 1.6vw, 1.2rem); }
-    .about-inner p + p { margin-top: 1rem; }
 
     section { scroll-margin-top: 1rem; }
     .releases { padding: clamp(4.5rem, 9vw, 8rem) 0; }
@@ -230,13 +260,40 @@
     .track-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
     .track-list li {
       display: grid;
-      grid-template-columns: 3.5rem 1fr;
+      grid-template-columns: 3.5rem minmax(0, 1fr) auto;
       align-items: center;
-      min-height: 76px;
+      gap: 1rem;
+      min-height: 82px;
+      padding: .65rem 0;
       border-bottom: 1px solid var(--line);
     }
     .track-number { color: var(--gold-strong); font-family: "Libre Baskerville", serif; font-size: .85rem; }
     .track-name { font-family: "Libre Baskerville", serif; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .035em; }
+    .track-actions { display: flex; align-items: center; gap: .55rem; }
+    .play-button, .youtube-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      padding: .58rem .8rem;
+      color: var(--ink);
+      background: transparent;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .82rem;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .play-button:hover, .play-button.is-playing, .youtube-button:hover {
+      background: var(--gold-strong);
+      border-color: var(--gold-strong);
+      color: var(--button-ink);
+    }
+    .play-button svg, .youtube-button svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
+    .track-list audio { display: none; }
 
     .legal {
       background: var(--paper);
@@ -272,6 +329,7 @@
 
     footer {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
       width: min(100% - 2.5rem, 1080px);
@@ -280,22 +338,38 @@
       color: var(--muted);
       font-size: .86rem;
     }
+    .footer-brand { display: flex; align-items: center; gap: .75rem; }
+    .footer-logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
     footer a { text-decoration: none; }
     footer a:hover { color: var(--ink); }
 
     @media (max-width: 700px) {
-      .site-nav { justify-content: center; padding-inline: 1rem; gap: 1rem; font-size: .8rem; }
+      .site-nav { padding-inline: 1rem; gap: .8rem; font-size: .77rem; }
+      .nav-logo { width: 46px; height: 46px; }
+      .nav-links { gap: .8rem; }
       .wrap, .code-panel, footer { width: min(100% - 2rem, 1080px); }
-      .hero { min-height: 600px; padding-top: 3.5rem; }
+      .hero { min-height: 0; padding: 2.75rem 0 5.5rem; }
       .hero::before { width: 76vw; right: -33vw; top: 1rem; }
+      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo-wrap { width: min(86vw, 390px); margin: 0 auto; transform: rotate(.7deg); }
       .brand-mark::before { width: 2.2rem; }
       h1 { font-size: clamp(3.8rem, 19vw, 6rem); }
-      .socials { display: grid; grid-template-columns: 1fr; }
-      .socials a { justify-content: center; }
+      .socials { display: grid; grid-template-columns: 1fr 1fr; }
+      .socials a { padding-inline: .6rem; }
       .section-intro, .legal-grid { grid-template-columns: 1fr; gap: 1.3rem; }
-      .track-list li { grid-template-columns: 2.8rem 1fr; min-height: 68px; }
+      .track-list li { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem 0; }
+      .track-actions { grid-column: 2; }
+      .play-button { flex: 1; }
+      .youtube-button { min-width: 44px; padding-inline: .7rem; }
+      .youtube-label { display: none; }
       .code-row { flex-direction: column; }
-      footer { flex-direction: column; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 390px) {
+      .nav-links { gap: .65rem; }
+      .site-nav { font-size: .72rem; }
+      .socials { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -306,10 +380,14 @@
 </head>
 <body>
   <nav class="site-nav" aria-label="Page navigation">
-    <a href="#about">About</a>
-    <a href="#releases">Releases</a>
-    <a href="#privacy">Privacy</a>
-    <a href="#terms">Terms</a>
+    <a class="nav-logo-link" href="#artist-name" aria-label="Back to Jamie White">
+      <img class="nav-logo" src="assets/roots-reels-logo.jpg" alt="Roots &amp; Reels circular gold emblem" />
+    </a>
+    <div class="nav-links">
+      <a href="#releases">Releases</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </div>
   </nav>
 
   <aside class="code-panel" id="codePanel" aria-live="polite">
@@ -324,23 +402,32 @@
   <main>
     <section class="hero" aria-labelledby="artist-name">
       <div class="wrap hero-content">
-        <p class="brand-mark">Roots &amp; Reels</p>
-        <h1 id="artist-name">Jamie White</h1>
-        <p class="tagline">Country singer-songwriter — a new original song every day.</p>
-        <div class="socials" aria-label="Listen and follow">
-          <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer">Listen on YouTube</a>
-          <a href="https://www.instagram.com/_jwhite97_" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
-          <a href="https://www.tiktok.com/@rootsreelsandfamily" target="_blank" rel="noopener noreferrer">Follow on TikTok</a>
-          <a href="https://facebook.com/Jamiewhite97" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <div class="hero-copy">
+          <p class="brand-mark">Roots &amp; Reels</p>
+          <h1 id="artist-name">Jamie White</h1>
+          <p class="tagline">Country singer-songwriter — a new original song every day.</p>
+          <div class="socials" aria-label="Listen and follow">
+            <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit Roots &amp; Reels on YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+              YouTube
+            </a>
+            <a href="https://facebook.com/Jamiewhite97" target="_blank" rel="noopener noreferrer" aria-label="Follow Jamie White on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
+              Facebook
+            </a>
+            <a href="https://www.instagram.com/_jwhite97_" target="_blank" rel="noopener noreferrer" aria-label="Follow Jamie White on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.tiktok.com/@rootsreelsandfamily" target="_blank" rel="noopener noreferrer" aria-label="Follow Roots &amp; Reels on TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 2c.34 2.04 1.54 3.28 3.63 3.41v3.14a7.36 7.36 0 0 1-3.59-1.06v6.47c0 8.22-8.95 10.79-12.56 4.9-2.32-3.8-.9-10.48 6.55-11.12v3.32c-.58.09-1.19.24-1.75.43-1.68.57-2.64 1.65-2.37 3.55.51 3.65 7.22 4.73 6.67-2.4V2h3.42Z"/></svg>
+              TikTok
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="wrap about-inner">
-        <h2 id="about-title">Hey y'all, I'm Jamie</h2>
-        <p>I'm an independent country singer-songwriter from the Florida panhandle, sharing a brand-new original song every single day. Every song is written from my life — the love, the loss, and everything in between.</p>
-        <p>Thanks for being here for the journey. We're just getting started. 💛</p>
+        <figure class="hero-photo-wrap">
+          <img class="hero-photo" src="assets/jamie-hero-tractor.jpg" alt="Jamie White standing beside a vintage tractor at golden hour with the Roots &amp; Reels emblem" />
+        </figure>
       </div>
     </section>
 
@@ -351,14 +438,70 @@
           <p>Original songs from Jamie White, rooted in country storytelling.</p>
         </div>
         <ol class="track-list">
-          <li><span class="track-number">01</span><span class="track-name">WINDOWS DOWN</span></li>
-          <li><span class="track-number">02</span><span class="track-name">GOLD FROM NOTHING</span></li>
-          <li><span class="track-number">03</span><span class="track-name">ROOTS &amp; RAIN</span></li>
-          <li><span class="track-number">04</span><span class="track-name">FINDING MYSELF</span></li>
-          <li><span class="track-number">05</span><span class="track-name">TOUCH THE SKY</span></li>
-          <li><span class="track-number">06</span><span class="track-name">NO MASTER PLAN</span></li>
-          <li><span class="track-number">07</span><span class="track-name">THREE STRIKES</span></li>
-          <li><span class="track-number">08</span><span class="track-name">PRAYING FOR LAND</span></li>
+          <li>
+            <span class="track-number">01</span><span class="track-name">WINDOWS DOWN</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-01" aria-label="Play WINDOWS DOWN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/watch?v=nO2QIWsc4n8" target="_blank" rel="noopener noreferrer" aria-label="Watch WINDOWS DOWN on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-01" preload="none" src="assets/windows-down.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">02</span><span class="track-name">GOLD FROM NOTHING</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-02" aria-label="Play GOLD FROM NOTHING"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/watch?v=dKwfJf8RQ0I" target="_blank" rel="noopener noreferrer" aria-label="Watch GOLD FROM NOTHING on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-02" preload="none" src="assets/gold-from-nothing.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">03</span><span class="track-name">ROOTS &amp; RAIN</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-03" aria-label="Play ROOTS &amp; RAIN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://youtube.com/shorts/xrSAlDPvMK0" target="_blank" rel="noopener noreferrer" aria-label="Watch ROOTS &amp; RAIN on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-03" preload="none" src="assets/roots-and-rain.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">04</span><span class="track-name">FINDING MYSELF</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-04" aria-label="Play FINDING MYSELF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/watch?v=H28hUv6Y64Q" target="_blank" rel="noopener noreferrer" aria-label="Watch FINDING MYSELF on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-04" preload="none" src="assets/finding-myself.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">05</span><span class="track-name">TOUCH THE SKY</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-05" aria-label="Play TOUCH THE SKY"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for TOUCH THE SKY"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-05" preload="none" src="assets/touch-the-sky.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">06</span><span class="track-name">NO MASTER PLAN</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-06" aria-label="Play NO MASTER PLAN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for NO MASTER PLAN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-06" preload="none" src="assets/no-master-plan.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">07</span><span class="track-name">THREE STRIKES</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-07" aria-label="Play THREE STRIKES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for THREE STRIKES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-07" preload="none" src="assets/three-strikes.mp3"></audio>
+            </span>
+          </li>
+          <li>
+            <span class="track-number">08</span><span class="track-name">PRAYING FOR LAND</span>
+            <span class="track-actions">
+              <button class="play-button" type="button" data-audio="audio-08" aria-label="Play PRAYING FOR LAND"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
+              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for PRAYING FOR LAND"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <audio id="audio-08" preload="none" src="assets/praying-for-land.mp3"></audio>
+            </span>
+          </li>
         </ol>
       </div>
     </section>
@@ -372,7 +515,7 @@
         <div class="legal-copy">
           <p>Roots and Reels Publisher is a content-publishing tool by Jamie White. It is used solely to publish Jamie White’s own original music videos to her own TikTok account.</p>
           <p>The app collects only the TikTok account authorization needed to publish that content. No data is sold or shared.</p>
-          <p>Privacy questions may be directed to <a class="contact" href="mailto:Secret_gurl70@yahoo.com">Secret_gurl70@yahoo.com</a>.</p>
+          <p>Privacy questions may be directed to <span class="contact">Secret_gurl70@yahoo.com</span>.</p>
         </div>
       </div>
     </section>
@@ -392,13 +535,12 @@
   </main>
 
   <footer>
-    <span>© <span id="year">2026</span> Jamie White</span>
+    <span class="footer-brand"><img class="footer-logo" src="assets/roots-reels-logo.jpg" alt="" />© <span id="year">2026</span> Jamie White</span>
     <span><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a></span>
   </footer>
 
   <script>
     (function () {
-      document.getElementById("year").textContent = new Date().getFullYear();
       var params = new URLSearchParams(window.location.search);
       var code = params.get("code");
       var panel = document.getElementById("codePanel");
@@ -437,6 +579,54 @@
             status.textContent = "Select the code and copy it manually.";
           }
         }
+      });
+
+      var playButtons = Array.prototype.slice.call(document.querySelectorAll(".play-button"));
+      var players = Array.prototype.slice.call(document.querySelectorAll(".track-list audio"));
+
+      function resetPlayButton(playButton) {
+        var title = playButton.getAttribute("data-title");
+        playButton.classList.remove("is-playing");
+        playButton.querySelector(".play-label").textContent = "Play";
+        playButton.querySelector("path").setAttribute("d", "M8 5v14l11-7Z");
+        playButton.setAttribute("aria-label", "Play " + title);
+      }
+
+      playButtons.forEach(function (playButton) {
+        var title = playButton.getAttribute("aria-label").replace(/^Play /, "");
+        var player = document.getElementById(playButton.getAttribute("data-audio"));
+        playButton.setAttribute("data-title", title);
+
+        playButton.addEventListener("click", function () {
+          if (!player.paused) {
+            player.pause();
+            resetPlayButton(playButton);
+            return;
+          }
+
+          players.forEach(function (otherPlayer) {
+            if (otherPlayer !== player) {
+              otherPlayer.pause();
+            }
+          });
+          playButtons.forEach(resetPlayButton);
+
+          var playRequest = player.play();
+          if (playRequest && playRequest.then) {
+            playRequest.then(function () {
+              playButton.classList.add("is-playing");
+              playButton.querySelector(".play-label").textContent = "Pause";
+              playButton.querySelector("path").setAttribute("d", "M7 5h4v14H7Zm6 0h4v14h-4Z");
+              playButton.setAttribute("aria-label", "Pause " + title);
+            }).catch(function () {
+              resetPlayButton(playButton);
+            });
+          }
+        });
+
+        player.addEventListener("ended", function () {
+          resetPlayButton(playButton);
+        });
       });
     }());
   </script>
