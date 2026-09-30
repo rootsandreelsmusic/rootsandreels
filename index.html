@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="Jamie White — Roots & Reels. Independent country singer-songwriter sharing a new original song every day." />
+  <meta name="description" content="Jamie White — Roots & Reels. Independent country singer-songwriter sharing new original songs every week." />
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -260,7 +260,7 @@
     .track-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
     .track-list li {
       display: grid;
-      grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+      grid-template-columns: 4.4rem 3.5rem minmax(0, 1fr) auto;
       align-items: center;
       gap: 1rem;
       min-height: 82px;
@@ -269,6 +269,8 @@
     }
     .track-number { color: var(--gold-strong); font-family: "Libre Baskerville", serif; font-size: .85rem; }
     .track-name { font-family: "Libre Baskerville", serif; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .035em; }
+    .track-cover { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-strong); }
+    .track-note { display: block; font-size: .8rem; color: var(--gold-strong); margin-top: .3rem; letter-spacing: .02em; }
     .track-actions {
       display: grid;
       grid-template-columns: auto minmax(170px, 230px) auto;
@@ -583,9 +585,10 @@
       .stat-grid { grid-template-columns: 1fr 1fr; }
       .goal-heading { align-items: flex-start; }
       .growth-chart { height: 230px; }
-      .track-list li { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem 0; }
+      .track-list li { grid-template-columns: 3.4rem 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem 0; }
+      .track-cover { width: 52px; height: 52px; }
       .track-actions {
-        grid-column: 2;
+        grid-column: 2 / -1;
         grid-template-columns: minmax(0, 1fr) auto;
         width: 100%;
       }
@@ -637,7 +640,7 @@
         <div class="hero-copy">
           <p class="brand-mark">Roots &amp; Reels</p>
           <h1 id="artist-name">Jamie White</h1>
-          <p class="tagline">Country singer-songwriter — a new original song every day.</p>
+          <p class="tagline">Country singer-songwriter — new original songs every week.</p>
           <div class="socials" aria-label="Listen and follow">
             <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit Roots &amp; Reels on YouTube">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
@@ -646,6 +649,10 @@
             <a href="https://facebook.com/Jamiewhite97" target="_blank" rel="noopener noreferrer" aria-label="Follow Jamie White on Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
               Facebook
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61594882593311" target="_blank" rel="noopener noreferrer" aria-label="Follow the Roots &amp; Reels page on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
+              Roots &amp; Reels Page
             </a>
             <a href="https://www.instagram.com/_jwhite97_" target="_blank" rel="noopener noreferrer" aria-label="Follow Jamie White on Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
@@ -671,7 +678,7 @@
         </div>
         <ol class="track-list">
           <li>
-            <span class="track-number">01</span><span class="track-name">WINDOWS DOWN</span>
+            <img class="track-cover" src="assets/windows-down-cover.jpg" alt="WINDOWS DOWN cover art" loading="lazy"><span class="track-number">01</span><span class="track-name">WINDOWS DOWN</span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-01" aria-label="Play WINDOWS DOWN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/watch?v=nO2QIWsc4n8" target="_blank" rel="noopener noreferrer" aria-label="Watch WINDOWS DOWN on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -679,7 +686,7 @@
             </span>
           </li>
           <li>
-            <span class="track-number">02</span><span class="track-name">GOLD FROM NOTHING</span>
+            <img class="track-cover" src="assets/gold-from-nothing-cover.jpg" alt="GOLD FROM NOTHING cover art" loading="lazy"><span class="track-number">02</span><span class="track-name">GOLD FROM NOTHING</span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-02" aria-label="Play GOLD FROM NOTHING"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/watch?v=dKwfJf8RQ0I" target="_blank" rel="noopener noreferrer" aria-label="Watch GOLD FROM NOTHING on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -687,7 +694,7 @@
             </span>
           </li>
           <li>
-            <span class="track-number">03</span><span class="track-name">ROOTS &amp; RAIN</span>
+            <img class="track-cover" src="assets/roots-and-rain-cover.jpg" alt="ROOTS &amp; RAIN cover art" loading="lazy"><span class="track-number">03</span><span class="track-name">ROOTS &amp; RAIN</span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-03" aria-label="Play ROOTS &amp; RAIN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://youtube.com/shorts/xrSAlDPvMK0" target="_blank" rel="noopener noreferrer" aria-label="Watch ROOTS &amp; RAIN on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -695,7 +702,7 @@
             </span>
           </li>
           <li>
-            <span class="track-number">04</span><span class="track-name">FINDING MYSELF</span>
+            <img class="track-cover" src="assets/finding-myself-cover.jpg" alt="FINDING MYSELF cover art" loading="lazy"><span class="track-number">04</span><span class="track-name">FINDING MYSELF</span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-04" aria-label="Play FINDING MYSELF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/watch?v=H28hUv6Y64Q" target="_blank" rel="noopener noreferrer" aria-label="Watch FINDING MYSELF on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -703,23 +710,23 @@
             </span>
           </li>
           <li>
-            <span class="track-number">05</span><span class="track-name">TOUCH THE SKY</span>
+            <img class="track-cover" src="assets/touch-the-sky-cover.jpg" alt="TOUCH THE SKY cover art" loading="lazy"><span class="track-number">05</span><span class="track-name">TOUCH THE SKY</span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-05" aria-label="Play TOUCH THE SKY"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
-              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for TOUCH THE SKY"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <a class="youtube-button" href="https://www.youtube.com/shorts/SerMAJXYFcY" target="_blank" rel="noopener noreferrer" aria-label="Watch TOUCH THE SKY on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
               <audio id="audio-05" preload="none" src="assets/touch-the-sky.mp3"></audio>
             </span>
           </li>
           <li>
-            <span class="track-number">06</span><span class="track-name">NO MASTER PLAN</span>
+            <img class="track-cover" src="assets/no-master-plan-cover.jpg" alt="NO MASTER PLAN cover art" loading="lazy"><span class="track-number">06</span><span class="track-name">NO MASTER PLAN<span class="track-note">Full music video drops TODAY at noon CT 🎬</span></span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-06" aria-label="Play NO MASTER PLAN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
-              <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for NO MASTER PLAN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
+              <a class="youtube-button" href="https://www.youtube.com/shorts/r_J78h7Mc_8" target="_blank" rel="noopener noreferrer" aria-label="Watch the NO MASTER PLAN teaser on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
               <audio id="audio-06" preload="none" src="assets/no-master-plan.mp3"></audio>
             </span>
           </li>
           <li>
-            <span class="track-number">07</span><span class="track-name">THREE STRIKES</span>
+            <img class="track-cover" src="assets/three-strikes-cover.jpg" alt="THREE STRIKES cover art" loading="lazy"><span class="track-number">07</span><span class="track-name">THREE STRIKES<span class="track-note">Full music video drops Thursday at noon CT 🎬</span></span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-07" aria-label="Play THREE STRIKES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for THREE STRIKES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -727,7 +734,7 @@
             </span>
           </li>
           <li>
-            <span class="track-number">08</span><span class="track-name">PRAYING FOR LAND</span>
+            <img class="track-cover" src="assets/praying-for-land-cover.jpg" alt="PRAYING FOR LAND cover art" loading="lazy"><span class="track-number">08</span><span class="track-name">PRAYING FOR LAND<span class="track-note">Full music video drops Friday at noon CT 🎬</span></span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-08" aria-label="Play PRAYING FOR LAND"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for PRAYING FOR LAND"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -735,7 +742,7 @@
             </span>
           </li>
           <li>
-            <span class="track-number">09</span><span class="track-name">WHITE PICKET DREAMS</span>
+            <img class="track-cover" src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy"><span class="track-number">09</span><span class="track-name">WHITE PICKET DREAMS<span class="track-note">Full music video drops Saturday 🎬</span></span>
             <span class="track-actions">
               <button class="play-button" type="button" data-audio="audio-09" aria-label="Play WHITE PICKET DREAMS"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg><span class="play-label">Play</span></button>
               <a class="youtube-button" href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit the Roots &amp; Reels YouTube channel for WHITE PICKET DREAMS"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span class="youtube-label">YouTube</span></a>
@@ -762,6 +769,35 @@
           <h2 id="support-title">Support Roots &amp; Reels 💛</h2>
           <p>Tips go straight to the music — every dollar helps me keep releasing a song a day for y'all.</p>
           <p><a class="tip-button" href="https://ko-fi.com/rootsandreelsmusic">💛 Tip Roots &amp; Reels</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <h2 id="reviews-title">What Y'all Are Saying 💛</h2>
+        <p class="reviews-intro">Real words from real folks listenin' to the music.</p>
+        <div class="review-grid">
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"SOOOOOOO PROUD OF YOU!!!"</blockquote>
+            <figcaption>— Arin L.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I hope you the best you d deserve it"</blockquote>
+            <figcaption>— Wanda S.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"ur doing such a great job on them"</blockquote>
+            <figcaption>— Laura C.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Hell woman get it"</blockquote>
+            <figcaption>— Kevin C.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -802,8 +838,8 @@
           </article>
           <article class="stat-card">
             <p class="stat-label">Songs released</p>
-            <p class="stat-value">6</p>
-            <p class="stat-caption">one a day since Sep 25</p>
+            <p class="stat-value">9</p>
+            <p class="stat-caption">6 out now · 3 more this week</p>
           </article>
         </div>
 
