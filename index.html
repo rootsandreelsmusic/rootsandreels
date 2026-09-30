@@ -390,12 +390,53 @@
       color: var(--muted);
       font-size: 1.02rem;
     }
+    .reviews {
+      padding: clamp(4.5rem, 9vw, 7rem) 0;
+      background: var(--page);
+      border-bottom: 1px solid var(--line);
+    }
+    .reviews h2 {
+      margin: 0 0 .5rem;
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      letter-spacing: -.045em;
+    }
+    .reviews-intro {
+      margin: 0 0 2.5rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .review-card {
+      margin: 0;
+      padding: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+    .review-card .stars {
+      color: var(--gold-strong);
+      font-size: 1.15rem;
+      letter-spacing: .15em;
+    }
+    .review-card blockquote {
+      margin: 1rem 0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    .review-card figcaption {
+      color: var(--muted);
+      font-size: .9rem;
+    }
     .booking-block {
       padding: 1.5rem;
       border-top: 2px solid var(--gold-strong);
       border-bottom: 1px solid var(--line);
     }
-    .booking-button {
+    .booking-button, .tip-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -409,7 +450,7 @@
       text-decoration: none;
       transition: background-color .18s ease, color .18s ease;
     }
-    .booking-button:hover { background: transparent; color: var(--gold-strong); }
+    .booking-button:hover, .tip-button:hover { background: transparent; color: var(--gold-strong); }
     .booking-block p { margin: .85rem 0 0; color: var(--muted); font-size: .9rem; }
 
     .dashboard {
@@ -720,6 +761,36 @@
         <div class="support-copy">
           <h2 id="support-title">Support Roots &amp; Reels 💛</h2>
           <p>Tips go straight to the music — every dollar helps me keep releasing a song a day for y'all.</p>
+          <p><a class="tip-button" href="https://ko-fi.com/rootsandreelsmusic">💛 Tip Roots &amp; Reels</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <h2 id="reviews-title">What Y'all Are Saying 💛</h2>
+        <p class="reviews-intro">Real words from real folks listenin' to the music.</p>
+        <div class="review-grid">
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"SOOOOOOO PROUD OF YOU!!!"</blockquote>
+            <figcaption>— Arin L.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I hope you the best you d deserve it"</blockquote>
+            <figcaption>— Wanda S.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"ur doing such a great job on them"</blockquote>
+            <figcaption>— Laura C.</figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Hell woman get it"</blockquote>
+            <figcaption>— Kevin C.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
