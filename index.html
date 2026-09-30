@@ -269,8 +269,9 @@
     }
     .track-number { color: var(--gold-strong); font-family: "Libre Baskerville", serif; font-size: .85rem; }
     .track-name { font-family: "Libre Baskerville", serif; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .035em; }
-    .track-actions { display: flex; align-items: center; gap: .55rem; }
-    .play-button, .youtube-button, .lyrics-button {
+    .track-actions { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
+    .seek-controls { display: flex; align-items: center; gap: .4rem; }
+    .play-button, .skip-button, .youtube-button, .lyrics-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -287,12 +288,16 @@
       cursor: pointer;
       transition: background-color .18s ease, color .18s ease, border-color .18s ease;
     }
-    .play-button:hover, .play-button.is-playing, .youtube-button:hover, .lyrics-button:hover, .lyrics-button[aria-expanded="true"] {
+    .play-button:hover, .play-button.is-playing, .skip-button:hover, .youtube-button:hover, .lyrics-button:hover, .lyrics-button[aria-expanded="true"] {
       background: var(--gold-strong);
       border-color: var(--gold-strong);
       color: var(--button-ink);
     }
-    .play-button svg, .youtube-button svg, .lyrics-button svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
+    .play-button svg, .skip-button svg, .youtube-button svg, .lyrics-button svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
+    .skip-button { min-width: 46px; padding-inline: .55rem; }
+    .timeline-control { display: flex; align-items: center; gap: .55rem; flex: 1 1 170px; min-width: 140px; }
+    .timeline { flex: 1 1 auto; min-width: 90px; height: 28px; margin: 0; accent-color: var(--gold-strong); cursor: pointer; }
+    .time-readout { min-width: 4.9rem; color: var(--muted); font-variant-numeric: tabular-nums; font-size: .72rem; white-space: nowrap; text-align: right; }
     .track-list audio { display: none; }
 
     .legal {
@@ -360,6 +365,7 @@
       .track-list li { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem 0; }
       .track-actions { grid-column: 2; }
       .play-button { flex: 1; }
+      .timeline-control { flex: 1 1 100%; order: 5; }
       .youtube-button { min-width: 44px; padding-inline: .7rem; }
       .youtube-label { display: none; }
       .code-row { flex-direction: column; }
@@ -1036,6 +1042,13 @@ Meaning: her family, her faith, her dream of stability — a house, a yard, a wh
       var playButtons = Array.prototype.slice.call(document.querySelectorAll(".play-button"));
       var players = Array.prototype.slice.call(document.querySelectorAll(".track-list audio"));
 
+      function formatTime(seconds) {
+        if (!Number.isFinite(seconds)) return "--:--";
+        var minutes = Math.floor(seconds / 60);
+        var remainder = Math.floor(seconds % 60);
+        return minutes + ":" + (remainder < 10 ? "0" : "") + remainder;
+      }
+
       function resetPlayButton(playButton) {
         var title = playButton.getAttribute("data-title");
         playButton.classList.remove("is-playing");
@@ -1047,7 +1060,78 @@ Meaning: her family, her faith, her dream of stability — a house, a yard, a wh
       playButtons.forEach(function (playButton) {
         var title = playButton.getAttribute("aria-label").replace(/^Play /, "");
         var player = document.getElementById(playButton.getAttribute("data-audio"));
+        var actions = playButton.closest(".track-actions");
+        var youtubeButton = actions.querySelector(".youtube-button");
+        var seekControls = document.createElement("span");
+        var rewindButton = document.createElement("button");
+        var forwardButton = document.createElement("button");
+        var timelineControl = document.createElement("span");
+        var timeline = document.createElement("input");
+        var timeReadout = document.createElement("span");
+
         playButton.setAttribute("data-title", title);
+        player.preload = "metadata";
+
+        seekControls.className = "seek-controls";
+        rewindButton.className = "skip-button";
+        rewindButton.type = "button";
+        rewindButton.textContent = "−10s";
+        rewindButton.setAttribute("aria-label", "Rewind " + title + " 10 seconds");
+        forwardButton.className = "skip-button";
+        forwardButton.type = "button";
+        forwardButton.textContent = "+10s";
+        forwardButton.setAttribute("aria-label", "Fast-forward " + title + " 10 seconds");
+        actions.insertBefore(seekControls, playButton);
+        seekControls.appendChild(rewindButton);
+        seekControls.appendChild(playButton);
+        seekControls.appendChild(forwardButton);
+
+        timelineControl.className = "timeline-control";
+        timeline.className = "timeline";
+        timeline.type = "range";
+        timeline.min = "0";
+        timeline.max = "1000";
+        timeline.step = "1";
+        timeline.value = "0";
+        timeline.setAttribute("aria-label", "Seek through " + title);
+        timeReadout.className = "time-readout";
+        timeReadout.textContent = "0:00 / --:--";
+        timelineControl.appendChild(timeline);
+        timelineControl.appendChild(timeReadout);
+        actions.insertBefore(timelineControl, youtubeButton);
+
+        function updateTimeline() {
+          var duration = player.duration;
+          var current = player.currentTime || 0;
+          timeline.value = Number.isFinite(duration) && duration > 0 ? String(Math.round((current / duration) * 1000)) : "0";
+          timeline.setAttribute("aria-valuetext", formatTime(current) + " of " + formatTime(duration));
+          timeReadout.textContent = formatTime(current) + " / " + formatTime(duration);
+        }
+
+        function seekBy(seconds) {
+          function applySeek() {
+            if (Number.isFinite(player.duration)) {
+              player.currentTime = Math.max(0, Math.min(player.duration, player.currentTime + seconds));
+              updateTimeline();
+            }
+          }
+
+          if (Number.isFinite(player.duration)) {
+            applySeek();
+          } else {
+            player.addEventListener("loadedmetadata", applySeek, { once: true });
+            player.load();
+          }
+        }
+
+        rewindButton.addEventListener("click", function () { seekBy(-10); });
+        forwardButton.addEventListener("click", function () { seekBy(10); });
+        timeline.addEventListener("input", function () {
+          if (Number.isFinite(player.duration)) {
+            player.currentTime = (Number(timeline.value) / 1000) * player.duration;
+            updateTimeline();
+          }
+        });
 
         playButton.addEventListener("click", function () {
           if (!player.paused) {
@@ -1076,11 +1160,15 @@ Meaning: her family, her faith, her dream of stability — a house, a yard, a wh
           }
         });
 
+        player.addEventListener("loadedmetadata", updateTimeline);
+        player.addEventListener("durationchange", updateTimeline);
+        player.addEventListener("timeupdate", updateTimeline);
         player.addEventListener("ended", function () {
           resetPlayButton(playButton);
+          updateTimeline();
         });
       });
-    
+
       var lyricsButtons = Array.prototype.slice.call(document.querySelectorAll(".lyrics-button"));
       function closeLyrics(except) {
         lyricsButtons.forEach(function (btn) {
