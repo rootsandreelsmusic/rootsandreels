@@ -436,6 +436,7 @@
       background: var(--line);
     }
     .stat-card { min-width: 0; padding: 1.35rem; background: var(--paper); }
+    .stat-card[hidden] { display: none; }
     .stat-label { margin: 0; color: var(--muted); font-size: .86rem; }
     .stat-value {
       margin: .25rem 0 0;
@@ -773,6 +774,11 @@
             <p class="stat-value">7</p>
             <p class="stat-caption">7 out now · 2 more this week</p>
           </article>
+          <article class="stat-card" id="visits-card" hidden>
+            <p class="stat-label">Website visits</p>
+            <p class="stat-value" id="visits-count">…</p>
+            <p class="stat-caption">counting since Oct 1 💛</p>
+          </article>
         </div>
 
         <div class="dashboard-lower">
@@ -1010,6 +1016,39 @@
           updateTimeline();
         });
       });
+
+    (function () {
+      /* Live website visit counter (free CountAPI revival, no signup).
+         Counts one visit per browser session; stays hidden if the service
+         is unreachable so it never shows a fabricated number. */
+      var card = document.getElementById("visits-card");
+      var el = document.getElementById("visits-count");
+      if (!card || !el) return;
+      var BASE = "https://countapi.mileshilliard.com/api/v1";
+      var KEY = "roots-reels-site-visits";
+      function show(value) {
+        el.textContent = Number(value).toLocaleString("en-US");
+        card.hidden = false;
+      }
+      function readOnly() {
+        fetch(BASE + "/get/" + KEY, { cache: "no-store" })
+          .then(function (r) { return r.json(); })
+          .then(function (d) { if (d && typeof d.value === "number") show(d.value); })
+          .catch(function () {});
+      }
+      var counted = false;
+      try { counted = !!sessionStorage.getItem("rr_visit_counted"); } catch (e) {}
+      if (counted) { readOnly(); return; }
+      fetch(BASE + "/hit/" + KEY, { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d && typeof d.value === "number") {
+            try { sessionStorage.setItem("rr_visit_counted", "1"); } catch (e) {}
+            show(d.value);
+          }
+        })
+        .catch(function () {});
+    }());
 
       var subscriberChart = document.getElementById("subscriberChart");
 
