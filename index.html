@@ -576,6 +576,50 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .001ms !important; }
     }
+
+    /* Floating daily-song player */
+    .music-float {
+      position: fixed;
+      right: 1.1rem;
+      bottom: 1.1rem;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .music-btn {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      background: var(--gold-strong);
+      border: 2px solid var(--gold);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      animation: musicPulse 2.6s ease-in-out infinite;
+    }
+    .music-btn.playing { animation: none; }
+    @keyframes musicPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .music-label {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .32rem .8rem;
+      font-size: .78rem;
+      font-weight: 600;
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: var(--shadow);
+    }
   </style>
 </head>
 <body>
@@ -1147,6 +1191,77 @@
       if (window.matchMedia) {
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawSubscriberChart);
       }
+    }());
+  </script>
+  <div class="music-float" id="musicFloat">
+    <span class="music-label" id="musicLabel">🎶 Today's pick</span>
+    <button class="music-btn" id="musicBtn" aria-label="Play today's song">
+      <span class="music-icon" id="musicIcon" aria-hidden="true">🎶</span>
+    </button>
+    <audio id="siteAudio" preload="none"></audio>
+  </div>
+  <script>
+    (function () {
+      /* Daily rotating background song: auto-starts (fading in) on the
+         visitor's first tap anywhere, per browser autoplay rules. */
+      var SONGS = [
+        { title: "WINDOWS DOWN", file: "assets/windows-down.mp3" },
+        { title: "GOLD FROM NOTHING", file: "assets/gold-from-nothing.mp3" },
+        { title: "ROOTS & RAIN", file: "assets/roots-and-rain.mp3" },
+        { title: "FINDING MYSELF", file: "assets/finding-myself.mp3" },
+        { title: "TOUCH THE SKY", file: "assets/touch-the-sky.mp3" },
+        { title: "NO MASTER PLAN", file: "assets/no-master-plan.mp3" },
+        { title: "THREE STRIKES", file: "assets/three-strikes.mp3" }
+      ];
+      var btn = document.getElementById("musicBtn");
+      var icon = document.getElementById("musicIcon");
+      var label = document.getElementById("musicLabel");
+      var audio = document.getElementById("siteAudio");
+      if (!btn || !audio) return;
+      var now = new Date();
+      var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
+      var song = SONGS[day % SONGS.length];
+      audio.src = song.file;
+      audio.volume = 0;
+      label.textContent = "🎶 " + song.title;
+      function setPlaying(playing) {
+        btn.classList.toggle("playing", playing);
+        icon.textContent = playing ? "⏸" : "🎶";
+        btn.setAttribute("aria-label", playing ? "Pause today's song" : "Play today's song");
+      }
+      function fadeIn() {
+        var v = 0;
+        var t = setInterval(function () {
+          v = Math.min(0.8, v + 0.08);
+          audio.volume = v;
+          if (v >= 0.8) clearInterval(t);
+        }, 120);
+      }
+      function start() {
+        var audios = document.querySelectorAll("audio");
+        for (var i = 0; i < audios.length; i++) { if (audios[i] !== audio) audios[i].pause(); }
+        audio.play().then(function () { setPlaying(true); fadeIn(); }).catch(function () {});
+      }
+      function stop() { audio.pause(); setPlaying(false); }
+      var started = false;
+      function firstTouch(e) {
+        if (started) return;
+        if (e.target === btn || btn.contains(e.target)) return;
+        started = true;
+        window.removeEventListener("pointerdown", firstTouch);
+        start();
+      }
+      window.addEventListener("pointerdown", firstTouch);
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (!started) {
+          started = true;
+          window.removeEventListener("pointerdown", firstTouch);
+          start();
+          return;
+        }
+        if (audio.paused) start(); else stop();
+      });
     }());
   </script>
 </body>
