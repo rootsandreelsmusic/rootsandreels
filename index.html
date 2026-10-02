@@ -253,6 +253,40 @@
 
     section { scroll-margin-top: 1rem; }
     .releases { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+    .gallery { padding: clamp(3rem, 7vw, 6rem) 0; }
+    .gallery-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 1.25rem;
+    }
+    .gallery-grid a {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--paper);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .gallery-grid a:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+    .gallery-grid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .gallery-grid figcaption {
+      padding: .6rem .8rem;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .section-intro {
       display: grid;
       grid-template-columns: .75fr 1.25fr;
@@ -759,6 +793,44 @@
             </span>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 id="gallery-title">Album gallery</h2>
+          <p>Every cover, every song — tap one to watch it on YouTube.</p>
+        </div>
+        <div class="gallery-grid">
+          <a href="https://www.youtube.com/watch?v=nO2QIWsc4n8" target="_blank" rel="noopener noreferrer" aria-label="Watch WINDOWS DOWN on YouTube">
+            <figure style="margin:0"><img src="assets/windows-down-cover.jpg" alt="WINDOWS DOWN cover art" loading="lazy"><figcaption>WINDOWS DOWN</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/watch?v=dKwfJf8RQ0I" target="_blank" rel="noopener noreferrer" aria-label="Watch GOLD FROM NOTHING on YouTube">
+            <figure style="margin:0"><img src="assets/gold-from-nothing-cover.jpg" alt="GOLD FROM NOTHING cover art" loading="lazy"><figcaption>GOLD FROM NOTHING</figcaption></figure>
+          </a>
+          <a href="https://youtube.com/shorts/xrSAlDPvMK0" target="_blank" rel="noopener noreferrer" aria-label="Watch ROOTS &amp; RAIN on YouTube">
+            <figure style="margin:0"><img src="assets/roots-and-rain-cover.jpg" alt="ROOTS &amp; RAIN cover art" loading="lazy"><figcaption>ROOTS &amp; RAIN</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/watch?v=H28hUv6Y64Q" target="_blank" rel="noopener noreferrer" aria-label="Watch FINDING MYSELF on YouTube">
+            <figure style="margin:0"><img src="assets/finding-myself-cover.jpg" alt="FINDING MYSELF cover art" loading="lazy"><figcaption>FINDING MYSELF</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/shorts/SerMAJXYFcY" target="_blank" rel="noopener noreferrer" aria-label="Watch TOUCH THE SKY on YouTube">
+            <figure style="margin:0"><img src="assets/touch-the-sky-cover.jpg" alt="TOUCH THE SKY cover art" loading="lazy"><figcaption>TOUCH THE SKY</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/shorts/r_J78h7Mc_8" target="_blank" rel="noopener noreferrer" aria-label="Watch NO MASTER PLAN on YouTube">
+            <figure style="margin:0"><img src="assets/no-master-plan-cover.jpg" alt="NO MASTER PLAN cover art" loading="lazy"><figcaption>NO MASTER PLAN</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/watch?v=78_E8sdUQfA" target="_blank" rel="noopener noreferrer" aria-label="Watch THREE STRIKES on YouTube">
+            <figure style="margin:0"><img src="assets/three-strikes-cover.jpg" alt="THREE STRIKES cover art" loading="lazy"><figcaption>THREE STRIKES</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="PRAYING FOR LAND on YouTube">
+            <figure style="margin:0"><img src="assets/praying-for-land-cover.jpg" alt="PRAYING FOR LAND cover art" loading="lazy"><figcaption>PRAYING FOR LAND</figcaption></figure>
+          </a>
+          <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="WHITE PICKET DREAMS on YouTube">
+            <figure style="margin:0"><img src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy"><figcaption>WHITE PICKET DREAMS</figcaption></figure>
+          </a>
+        </div>
       </div>
     </section>
 
