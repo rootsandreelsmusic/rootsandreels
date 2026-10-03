@@ -3,110 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="Jamie White — Roots & Reels. Independent country singer-songwriter sharing new original songs every week." />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <title>Roots & Reels — Official Site</title>
   <style>
+    * { box-sizing: border-box; }
     :root {
-      color-scheme: light dark;
-      --page: #f5eddd;
+      --cream: #f5eddd;
       --paper: #fffaf0;
       --ink: #2b211a;
       --muted: #6c5a4a;
       --line: #cdbb9e;
-      --gold: #ae7622;
-      --gold-strong: #80500f;
-      --field: #30573f;
-      --field-soft: #d9e2d1;
+      --gold: #9a7b2d;
+      --gold-soft: #b3924a;
+      --gold-deep: #6e5620;
+      --hunter: #2e4b3f;
+      --hunter-deep: #1e332a;
+      --dark: #17130f;
+      --dark-soft: #231c16;
       --button-ink: #fffaf0;
       --shadow: 0 22px 58px rgba(65, 43, 24, .13);
+      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --page: #17130f;
-        --paper: #231c16;
-        --ink: #fff6e8;
-        --muted: #d0bfa9;
-        --line: #58493a;
-        --gold: #d8a44f;
-        --gold-strong: #efc577;
-        --field: #92b59a;
-        --field-soft: #283c2c;
-        --button-ink: #17130f;
-        --shadow: 0 24px 65px rgba(0, 0, 0, .28);
-      }
-    }
-
-    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background:
-        linear-gradient(90deg, transparent 0 49.8%, color-mix(in srgb, var(--line) 18%, transparent) 49.8% 50.2%, transparent 50.2%),
-        var(--page);
+      background: var(--cream);
       color: var(--ink);
-      font-family: "Work Sans", sans-serif;
-      line-height: 1.65;
+      font-family: var(--body);
+      line-height: 1.6;
       min-width: 0;
-    }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background:
-          url("assets/logo-watermark.png"),
-          linear-gradient(90deg, transparent 0 49.8%, color-mix(in srgb, var(--line) 18%, transparent) 49.8% 50.2%, transparent 50.2%),
-          var(--page);
-        background-size: 560px 560px, auto, auto;
-        background-attachment: fixed, scroll, scroll;
-      }
     }
     a { color: inherit; }
     button, input { font: inherit; }
-    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    :focus-visible { outline: 3px solid var(--hunter); outline-offset: 4px; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.12; }
 
-    .site-nav {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: .8rem clamp(1.25rem, 4vw, 3rem);
-      font-size: .88rem;
-      font-weight: 600;
-    }
-    .nav-logo {
-      display: block;
-      width: 56px;
-      height: 56px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 5px 18px rgba(43, 33, 26, .18);
-    }
-    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.1rem); }
-    .site-nav a:not(.nav-logo-link) {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-    .site-nav a:not(.nav-logo-link):hover { color: var(--ink); border-color: var(--gold); }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+    section { scroll-margin-top: 1rem; }
+
+    /* ---------- Nav ---------- */
+    nav.site-nav { background: var(--dark); padding: .7rem 0; position: sticky; top: 0; z-index: 40; }
+    nav.site-nav .wrap { display: flex; align-items: center; gap: .8rem; }
+    .nav-logo { display: block; width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-soft); flex: 0 0 auto; }
     .nav-logo-link { border: 0; text-decoration: none; }
+    .nav-brand { font-family: var(--display); color: var(--cream); font-size: 1.35rem; letter-spacing: .04em; text-decoration: none; }
+    .nav-spacer { flex: 1; }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.1rem); }
+    .nav-links a { color: #d0bfa9; text-decoration: none; font-size: .88rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--cream); }
+    nav.site-nav a.cta { background: var(--hunter); color: #fff; text-decoration: none; padding: .5rem 1.1rem; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+    nav.site-nav a.cta:hover { background: var(--hunter-deep); }
 
-    main { overflow: hidden; }
-    .wrap {
-      width: min(100% - 2.5rem, 1080px);
-      margin-inline: auto;
-    }
-
+    /* ---------- TikTok code panel ---------- */
     .code-panel {
       display: none;
       width: min(100% - 2.5rem, 840px);
@@ -117,562 +73,286 @@
       box-shadow: var(--shadow);
     }
     .code-panel.is-visible { display: block; }
-    .code-panel strong {
-      display: block;
-      font-family: "Libre Baskerville", serif;
-      font-size: .97rem;
-      margin-bottom: .55rem;
-    }
+    .code-panel strong { display: block; font-family: var(--display); font-size: .97rem; margin-bottom: .55rem; }
     .code-row { display: flex; gap: .6rem; }
     .code-row input {
-      flex: 1;
-      min-width: 0;
-      padding: .7rem .8rem;
-      color: var(--ink);
-      background: var(--page);
-      border: 1px solid var(--line);
-      border-radius: 2px;
+      flex: 1; min-width: 0; padding: .7rem .8rem; color: var(--ink);
+      background: var(--cream); border: 1px solid var(--line); border-radius: 2px;
     }
     .copy-button {
-      border: 0;
-      border-radius: 2px;
-      padding: .7rem 1rem;
-      color: var(--button-ink);
-      background: var(--gold-strong);
-      font-weight: 600;
-      cursor: pointer;
+      border: 0; border-radius: 2px; padding: .7rem 1rem; color: #fff;
+      background: var(--hunter); font-weight: 600; cursor: pointer;
     }
     .copy-status { min-height: 1.25rem; margin: .4rem 0 0; color: var(--muted); font-size: .8rem; }
 
-    .hero {
-      position: relative;
-      min-height: 690px;
-      display: grid;
-      place-items: center;
-      padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(5rem, 9vw, 8rem);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: min(46vw, 520px);
-      aspect-ratio: 1;
-      right: max(-10vw, -80px);
-      top: 1.75rem;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: .13;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 140px;
-      background: var(--field-soft);
-      clip-path: polygon(0 72%, 12% 54%, 24% 68%, 37% 42%, 51% 64%, 66% 36%, 80% 58%, 92% 32%, 100% 48%, 100% 100%, 0 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .72fr);
-      align-items: center;
-      gap: clamp(2.5rem, 7vw, 6rem);
-    }
-    .hero-copy { min-width: 0; }
-    .hero-photo-wrap {
-      position: relative;
-      max-width: 410px;
-      margin: 0 0 0 auto;
-      padding: 10px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      transform: rotate(1.2deg);
-    }
-    .hero-photo-wrap::before {
-      content: "";
-      position: absolute;
-      inset: -13px 14px 15px -15px;
-      border: 1px solid var(--gold);
-      z-index: -1;
-    }
-    .hero-photo {
-      display: block;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(1.08) contrast(1.03) brightness(1.03);
-    }
-    .brand-mark {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      margin: 0 0 1.25rem;
-      color: var(--gold-strong);
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-size: .82rem;
-    }
-    .brand-mark::before { content: ""; width: 3.8rem; height: 2px; background: currentColor; }
-    h1, h2, h3 { font-family: "Libre Baskerville", serif; line-height: 1.12; }
-    h1 {
-      max-width: 840px;
-      margin: 0;
-      font-size: clamp(4rem, 8vw, 6.8rem);
-      letter-spacing: -.06em;
-      font-weight: 700;
-    }
-    .tagline {
-      margin: 1.55rem 0 0;
-      max-width: 620px;
-      color: var(--muted);
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
-      line-height: 1.5;
-    }
-    .socials { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2rem; }
+    /* ---------- Hero ---------- */
+    .hero { background: var(--dark); color: var(--cream); overflow: hidden; }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem; align-items: center; padding: 3rem 1.25rem 4rem; }
+    .brand-mark { color: var(--cream); letter-spacing: .35em; text-transform: uppercase; font-size: .8rem; margin: 0 0 .6rem; font-weight: 600; }
+    .hero-copy h1 { font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.2rem); letter-spacing: -.01em; margin: 0; }
+    .hero-copy h1 em { font-style: italic; }
+    .tagline { color: #d0bfa9; margin: 1rem 0 1.6rem; font-size: 1.1rem; }
+    .socials { display: flex; flex-wrap: wrap; gap: .6rem; }
     .socials a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      min-height: 46px;
-      padding: .68rem .9rem;
-      border: 1px solid var(--ink);
-      border-radius: 2px;
-      text-decoration: none;
-      font-size: .9rem;
-      font-weight: 600;
-      transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      font-size: .82rem; font-weight: 600; text-decoration: none; color: var(--cream);
+      border: 1px solid var(--gold); padding: .5rem 1rem; border-radius: 999px;
+      transition: background .2s, border-color .2s;
     }
-    .socials svg { width: 19px; height: 19px; flex: 0 0 auto; fill: currentColor; }
-    .socials a:first-child { background: var(--ink); color: var(--page); }
-    .socials a:hover { background: var(--gold-strong); border-color: var(--gold-strong); color: var(--button-ink); }
+    .socials a svg { width: 19px; height: 19px; flex: 0 0 auto; }
+    .socials a:hover { background: var(--hunter); border-color: var(--hunter); color: #fff; }
+    .collage { position: relative; min-height: 420px; }
+    .collage .main-photo {
+      width: 78%; height: 400px; object-fit: cover; border-radius: 14px;
+      border: 3px solid var(--gold); box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    }
+    .collage .second-photo {
+      position: absolute; right: 0; bottom: -10px; width: 52%; height: 250px; object-fit: cover;
+      border-radius: 14px; border: 3px solid var(--gold-soft); transform: rotate(3deg);
+      box-shadow: 0 18px 44px rgba(0,0,0,.5);
+    }
+    .collage .badge {
+      position: absolute; left: -14px; bottom: 30px; width: 110px; height: 110px; border-radius: 50%;
+      object-fit: cover; border: 4px solid var(--cream); box-shadow: 0 12px 30px rgba(0,0,0,.45);
+    }
+    .collage .sticker {
+      position: absolute; top: 6px; right: 8%; background: var(--hunter); color: #fff;
+      font-size: .78rem; font-weight: bold; padding: .55rem 1rem; border-radius: 999px;
+      transform: rotate(-4deg); box-shadow: 0 10px 24px rgba(0,0,0,.4);
+    }
 
-    section { scroll-margin-top: 1rem; }
-    .releases { padding: clamp(4.5rem, 9vw, 8rem) 0; }
-    .gallery { padding: clamp(3rem, 7vw, 6rem) 0; }
-    .gallery-grid {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 1.25rem;
-    }
-    .gallery-grid a {
-      display: block;
-      text-decoration: none;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--paper);
-      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-    }
-    .gallery-grid a:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold);
-      box-shadow: var(--shadow);
-    }
-    .gallery-grid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .gallery-grid figcaption {
-      padding: .6rem .8rem;
-      font-size: .82rem;
-      font-weight: 600;
-      letter-spacing: .02em;
-      color: var(--ink);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .section-intro {
-      display: grid;
-      grid-template-columns: .75fr 1.25fr;
-      gap: clamp(2rem, 6vw, 6rem);
-      align-items: end;
-      margin-bottom: 2.5rem;
-    }
-    .section-intro h2, .legal-title h2 {
-      margin: 0;
-      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
-      letter-spacing: -.045em;
-    }
-    .section-intro p { margin: 0; color: var(--muted); max-width: 520px; }
+    /* ---------- Photo strip ---------- */
+    .strip { background: var(--hunter-deep); padding: .9rem 0; overflow: hidden; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+    .strip-track { display: flex; gap: .9rem; width: max-content; animation: slide 26s linear infinite; }
+    .strip-track img { height: 110px; width: 170px; object-fit: cover; border-radius: 10px; border: 2px solid var(--gold-soft); }
+    @keyframes slide { to { transform: translateX(-50%); } }
 
-    .track-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    /* ---------- Sections ---------- */
+    section.block { padding: 4rem 0; }
+    .section-kicker { color: var(--hunter); letter-spacing: .3em; text-transform: uppercase; font-size: .75rem; font-weight: bold; margin: 0 0 .5rem; }
+    h2.section-title { font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 1rem; }
+
+    /* ---------- Meet Jamie ---------- */
+    .meet { display: grid; grid-template-columns: .9fr 1.1fr; gap: 2.5rem; align-items: center; }
+    .meet img {
+      width: 100%; height: 460px; object-fit: cover; border-radius: 16px;
+      border: 3px solid var(--gold); box-shadow: var(--shadow);
+    }
+    .meet p { color: var(--muted); margin: 0 0 1rem; font-size: 1.05rem; }
+    .meet .sig { font-family: var(--display); font-style: italic; font-size: 1.6rem; color: var(--hunter); }
+
+    /* ---------- Releases ---------- */
+    .releases { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .track-list { list-style: none; padding: 0; margin: 0; }
     .track-list li {
       display: grid;
       grid-template-columns: 4.4rem 3.5rem minmax(0, 1fr) auto;
       align-items: center;
-      gap: 1rem;
-      min-height: 82px;
-      padding: .65rem 0;
-      border-bottom: 1px solid var(--line);
+      gap: 1.2rem;
+      padding: 1rem .4rem;
+      border-bottom: 1px dashed var(--line);
     }
-    .track-number { color: var(--gold-strong); font-family: "Libre Baskerville", serif; font-size: .85rem; }
-    .track-name { font-family: "Libre Baskerville", serif; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .035em; }
-    .track-cover { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-strong); }
-    .track-note { display: block; font-size: .8rem; color: var(--gold-strong); margin-top: .3rem; letter-spacing: .02em; }
-    .track-actions {
-      display: grid;
-      grid-template-columns: auto minmax(170px, 230px) auto;
-      align-items: center;
-      gap: .65rem;
+    .track-list li:last-child { border-bottom: none; }
+    .track-cover { width: 54px; height: 54px; object-fit: cover; border-radius: 10px; flex: 0 0 auto; }
+    .track-number { color: var(--hunter); font-weight: bold; font-size: .85rem; }
+    .track-name { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: .02em; }
+    .track-note {
+      display: inline-block; font-family: var(--body); font-size: .8rem; font-weight: 600;
+      color: var(--hunter-deep); background: #e3e9e2; padding: .3rem .8rem; border-radius: 999px;
+      white-space: nowrap; margin-left: .8rem; vertical-align: middle;
     }
+    .track-actions { display: flex; align-items: center; gap: .65rem; flex-wrap: wrap; }
     .seek-controls { display: flex; align-items: center; gap: .4rem; }
     .play-button, .skip-button, .youtube-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .45rem;
-      min-height: 44px;
-      border: 1px solid var(--ink);
-      border-radius: 2px;
-      padding: .58rem .72rem;
-      color: var(--ink);
-      background: transparent;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: .82rem;
-      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+      min-height: 44px; border: 1px solid var(--ink); border-radius: 999px; padding: .58rem .9rem;
+      color: var(--ink); background: transparent; text-decoration: none;
+      font-weight: 600; font-size: .82rem; cursor: pointer;
       transition: background-color .18s ease, color .18s ease, border-color .18s ease;
     }
     .skip-button { min-width: 46px; padding-inline: .55rem; }
     .skip-button span { font-size: .74rem; line-height: 1; }
     .play-button:hover, .play-button.is-playing, .skip-button:hover, .youtube-button:hover {
-      background: var(--gold-strong);
-      border-color: var(--gold-strong);
-      color: var(--button-ink);
+      background: var(--hunter); border-color: var(--hunter); color: #fff;
     }
     .play-button svg, .skip-button svg, .youtube-button svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
-    .timeline-control {
-      display: grid;
-      grid-template-columns: minmax(90px, 1fr) auto;
-      align-items: center;
-      gap: .55rem;
-      min-width: 0;
-    }
-    .timeline {
-      width: 100%;
-      height: 28px;
-      margin: 0;
-      accent-color: var(--gold-strong);
-      cursor: pointer;
-    }
-    .time-readout {
-      min-width: 4.9rem;
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-      font-size: .72rem;
-      white-space: nowrap;
-      text-align: right;
-    }
+    .timeline-control { display: grid; grid-template-columns: minmax(90px, 1fr) auto; align-items: center; gap: .55rem; min-width: 0; }
+    .timeline { width: 100%; height: 28px; margin: 0; accent-color: var(--hunter); cursor: pointer; }
+    .time-readout { min-width: 4.9rem; color: var(--muted); font-variant-numeric: tabular-nums; font-size: .72rem; white-space: nowrap; text-align: right; }
     .track-list audio { display: none; }
 
-    .song-club {
-      background: var(--field);
-      color: var(--button-ink);
-      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+    /* ---------- Gallery ---------- */
+    .gallery { padding: 4rem 0; }
+    .gallery-grid { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1.25rem; }
+    .gallery-grid a {
+      display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 10px;
+      overflow: hidden; background: var(--paper);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
-    .song-club-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) auto;
-      align-items: center;
-      gap: clamp(2rem, 7vw, 6rem);
-    }
-    .song-club h2 {
-      margin: 0;
-      max-width: 720px;
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      letter-spacing: -.045em;
-    }
-    .song-club p {
-      max-width: 680px;
-      margin: 1rem 0 0;
-      color: color-mix(in srgb, var(--button-ink) 84%, transparent);
-      font-size: 1.02rem;
-    }
+    .gallery-grid a:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: var(--shadow); }
+    .gallery-grid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .gallery-grid figcaption { padding: .6rem .8rem; font-size: .82rem; font-weight: 600; letter-spacing: .02em; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ---------- Song club ---------- */
+    .song-club { background: var(--hunter); color: #fff; padding: 4rem 0; }
+    .song-club-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) auto; align-items: center; gap: clamp(2rem, 7vw, 6rem); }
+    .song-club h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .song-club p { margin: 1rem 0 0; color: rgba(255,255,255,.84); font-size: 1.02rem; max-width: 680px; }
     .song-club-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: .8rem 1.25rem;
-      border: 1px solid var(--button-ink);
-      border-radius: 2px;
-      background: var(--button-ink);
-      color: var(--field);
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center; min-height: 52px;
+      padding: .8rem 1.25rem; border: 1px solid #fff; border-radius: 999px; background: #fff;
+      color: var(--hunter-deep); font-weight: 600; text-decoration: none; white-space: nowrap;
       transition: background-color .18s ease, color .18s ease;
     }
-    .song-club-button:hover {
-      background: transparent;
-      color: var(--button-ink);
-    }
+    .song-club-button:hover { background: transparent; color: #fff; }
 
-    .support {
-      padding: clamp(4.5rem, 9vw, 7rem) 0;
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
+    /* ---------- Support (tip jar) ---------- */
+    .support { padding: 4rem 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+    .support-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(270px, .8fr); align-items: center; gap: clamp(2rem, 7vw, 6rem); }
+    .support h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .support-copy > p { max-width: 680px; margin: 1rem 0 0; color: var(--muted); font-size: 1.02rem; }
+    .tip-button {
+      display: inline-flex; align-items: center; gap: .5rem; margin-top: .5rem;
+      background: var(--hunter); color: #fff; text-decoration: none; font-weight: 600;
+      padding: .8rem 1.5rem; border-radius: 999px;
     }
-    .support-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(270px, .8fr);
-      align-items: center;
-      gap: clamp(2rem, 7vw, 6rem);
-    }
-    .support h2 {
-      margin: 0;
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      letter-spacing: -.045em;
-    }
-    .support-copy > p {
-      max-width: 680px;
-      margin: 1rem 0 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-    .fanlove {
-      padding: clamp(4.5rem, 9vw, 7rem) 0;
-      background: var(--page);
-      border-bottom: 1px solid var(--line);
-    }
-    .fanlove h2 {
-      margin: 0 0 1rem;
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      letter-spacing: -.045em;
-    }
-    .fanlove-text {
-      margin: 0;
-      max-width: 46rem;
-      font-size: 1.15rem;
-      line-height: 1.65;
-      color: var(--gold-strong);
-    }
+    .tip-button:hover { background: var(--hunter-deep); }
+
+    /* ---------- Fan love ---------- */
+    .block.fanlove { background: #FCE8ED; }
+    .fanlove-text { margin: 0 0 1.5rem; max-width: 46rem; font-size: 1.15rem; line-height: 1.65; color: var(--muted); }
+    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.5rem; }
+    .quote { background: #fff; border-radius: 14px; padding: 1.4rem; border-left: 6px solid #c2255c; box-shadow: 0 10px 26px rgba(194,37,92,.12); }
+    .quote:last-child { border-left-color: #0c8599; }
+    .quote .stars { color: #f59f00; letter-spacing: .2em; margin-bottom: .5rem; }
+    .quote p { font-style: italic; margin: 0; }
+    .quote .who { font-size: .8rem; color: var(--muted); margin-top: .6rem; }
+
+    /* ---------- Dashboard ---------- */
     .dashboard {
-      min-height: 100vh;
-      padding: clamp(4.5rem, 9vw, 7rem) 0;
-      background: var(--page);
-      border-bottom: 1px solid var(--line);
+      --ink: #f7f1e2;
+      --muted: #d0bfa9;
+      --line: #35493C;
+      background: #43614C;
+      color: var(--cream);
+      padding: 4rem 0;
     }
-    .dashboard-header { margin-bottom: 2.5rem; }
-    .dashboard-header h2 {
-      margin: 0;
-      font-size: clamp(2.35rem, 5vw, 4.6rem);
-      letter-spacing: -.045em;
-    }
-    .dashboard-subheading {
-      margin: .8rem 0 0;
-      color: var(--muted);
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-    }
-    .dashboard-updated { margin: .45rem 0 0; color: var(--gold-strong); font-size: .86rem; font-weight: 600; }
+    .dashboard .section-kicker { color: var(--cream); }
+    .dashboard .dash-sub { color: #d0bfa9; margin: 0 0 2rem; }
+    .dashboard-header { margin-bottom: 2rem; }
+    .dashboard-updated { margin: .45rem 0 0; color: #f7f1e2; font-size: .86rem; font-weight: 600; }
     .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      padding: 1px;
-      background: var(--line);
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px;
+      background: #35493C; border: 1px solid #35493C; border-radius: 12px; overflow: hidden;
     }
-    .stat-card { min-width: 0; padding: 1.35rem; background: var(--paper); }
+    .stat-card { min-width: 0; padding: 1.4rem; background: #4E6F58; }
     .stat-card[hidden] { display: none; }
-    .stat-label { margin: 0; color: var(--muted); font-size: .86rem; }
-    .stat-value {
-      margin: .25rem 0 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.15;
-      letter-spacing: -.04em;
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-caption { margin: .45rem 0 0; color: var(--gold-strong); font-size: .78rem; }
-    .stat-promo .promo-cover { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; margin-bottom: .8rem; }
-    .stat-promo .promo-title { font-size: 1.6rem; }
-    .dashboard-lower {
-      display: grid;
-      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-      gap: clamp(2rem, 6vw, 5rem);
-      margin-top: clamp(3rem, 7vw, 5rem);
-      align-items: start;
-    }
-    .dashboard-panel h3 { margin: 0 0 1.4rem; font-size: clamp(1.45rem, 3vw, 2rem); }
+    .stat-label { margin: 0; color: #d0bfa9; font-size: .82rem; }
+    .stat-value { margin: .2rem 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #f7f1e2; font-variant-numeric: tabular-nums; }
+    .stat-caption { margin: .45rem 0 0; color: #c9bda6; font-size: .75rem; }
+    .stat-card.promo { display: flex; flex-direction: column; }
+    .stat-card.promo img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; margin-bottom: .8rem; border: 2px solid var(--gold); }
+    .stat-card.promo .stat-value { font-size: 1.4rem; }
+    .dashboard-lower { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(3rem, 7vw, 5rem); align-items: start; }
+    .dashboard-panel h3 { margin: 0 0 1.4rem; font-size: clamp(1.45rem, 3vw, 2rem); color: #f7f1e2; }
     .goal { margin-bottom: 1.55rem; }
     .goal:last-child { margin-bottom: 0; }
     .goal-heading { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .45rem; }
-    .goal-heading strong { font-family: "Libre Baskerville", serif; font-size: .9rem; }
-    .goal-heading span { flex: 0 0 auto; color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
-    .progress-track { height: 10px; overflow: hidden; background: var(--field-soft); border: 1px solid var(--line); }
-    .progress-fill { height: 100%; min-width: 2px; background: var(--gold-strong); }
-    .goal-caption { margin: .38rem 0 0; color: var(--muted); font-size: .76rem; }
-    .chart-shell { padding: 1rem 1rem .7rem; background: var(--paper); border: 1px solid var(--line); }
+    .goal-heading strong { font-family: var(--display); font-size: .9rem; color: #f7f1e2; }
+    .goal-heading span { flex: 0 0 auto; color: #d0bfa9; font-size: .8rem; font-variant-numeric: tabular-nums; }
+    .progress-track { height: 10px; overflow: hidden; background: #35493C; border: 1px solid #2c4033; border-radius: 999px; }
+    .progress-fill { height: 100%; min-width: 2px; background: var(--gold-soft); border-radius: 999px; }
+    .goal-caption { margin: .38rem 0 0; color: #d0bfa9; font-size: .76rem; }
+    .chart-shell { padding: 1rem 1rem .7rem; background: #4E6F58; border: 1px solid #35493C; border-radius: 12px; }
     .growth-chart { display: block; width: 100%; height: 260px; }
-    .chart-caption { margin: .7rem 0 0; color: var(--muted); font-size: .82rem; }
+    .chart-caption { margin: .7rem 0 0; color: #d0bfa9; font-size: .82rem; }
 
-    .legal {
-      background: var(--paper);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: clamp(4.5rem, 9vw, 8rem) 0;
-    }
+    /* ---------- Legal ---------- */
+    .legal { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 4rem 0; }
     .legal + .legal { border-top: 0; }
-    .legal-grid {
-      display: grid;
-      grid-template-columns: minmax(230px, .8fr) minmax(0, 1.2fr);
-      gap: clamp(2.5rem, 8vw, 7rem);
-    }
-    .legal-label {
-      display: inline-block;
-      margin-top: .7rem;
-      color: var(--gold-strong);
-      font-size: .82rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
+    .legal-grid { display: grid; grid-template-columns: minmax(230px, .8fr) minmax(0, 1.2fr); gap: clamp(2.5rem, 8vw, 7rem); }
+    .legal-label { display: inline-block; margin-top: .7rem; color: var(--hunter); font-size: .82rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
     .legal-copy { max-width: 650px; }
-    .legal-copy p { margin: 0 0 1.1rem; }
+    .legal-copy p { margin: 0 0 1.1rem; color: var(--muted); }
     .legal-copy p:last-child { margin-bottom: 0; }
-    .contact {
-      display: inline-block;
-      padding-bottom: .1rem;
-      font-weight: 600;
-      color: var(--field);
-      border-bottom: 1px solid currentColor;
-    }
+    .contact { display: inline-block; padding-bottom: .1rem; font-weight: 600; color: var(--hunter); border-bottom: 1px solid currentColor; }
 
-    footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      width: min(100% - 2.5rem, 1080px);
-      margin: 0 auto;
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: .86rem;
-    }
-    .footer-brand { display: flex; align-items: center; gap: .75rem; }
+    /* ---------- Footer ---------- */
+    footer { background: var(--dark); color: #a89880; text-align: center; padding: 2.2rem 1rem; font-size: .85rem; }
+    footer .fbrand { color: var(--cream); font-family: var(--display); font-size: 1.2rem; margin-bottom: .4rem; display: flex; align-items: center; justify-content: center; gap: .75rem; }
     .footer-logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-    footer a { text-decoration: none; }
-    .footer-contact { text-align: center; }
-    .footer-contact a {
-      color: var(--field);
-      font-weight: 600;
-      border-bottom: 1px solid currentColor;
-      overflow-wrap: anywhere;
-    }
-    footer a:hover { color: var(--ink); }
+    footer a { color: #d0bfa9; text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+    .footer-contact { display: block; margin: .4rem 0; }
+    .footer-contact a { color: var(--gold-soft); font-weight: 600; border-bottom: 1px solid currentColor; }
 
-    @media (max-width: 700px) {
-      .site-nav { padding-inline: 1rem; gap: .8rem; font-size: .77rem; }
-      .nav-logo { width: 46px; height: 46px; }
-      .nav-links { gap: .8rem; }
-      .wrap, .code-panel, footer { width: min(100% - 2rem, 1080px); }
-      .hero { min-height: 0; padding: 2.75rem 0 5.5rem; }
-      .hero::before { width: 76vw; right: -33vw; top: 1rem; }
-      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-photo-wrap { width: min(86vw, 390px); margin: 0 auto; transform: rotate(.7deg); }
-      .brand-mark::before { width: 2.2rem; }
-      h1 { font-size: clamp(3.8rem, 19vw, 6rem); }
-      .socials { display: grid; grid-template-columns: 1fr 1fr; }
-      .socials a { padding-inline: .6rem; }
-      .section-intro, .legal-grid, .song-club-inner, .support-inner, .dashboard-lower { grid-template-columns: 1fr; gap: 1.3rem; }
-      .song-club-button, .booking-button { width: 100%; white-space: normal; text-align: center; }
+    /* ---------- Floating player ---------- */
+    .music-float { position: fixed; left: 1.1rem; top: 5rem; z-index: 60; display: flex; align-items: center; gap: .55rem; }
+    .music-btn {
+      width: 3.4rem; height: 3.4rem; border-radius: 50%; background: var(--hunter);
+      border: 2px solid var(--gold-soft); font-size: 1.35rem; line-height: 1; cursor: pointer;
+      box-shadow: var(--shadow); display: grid; place-items: center;
+      animation: musicPulse 2.6s ease-in-out infinite;
+    }
+    .music-btn.playing { animation: none; }
+    @keyframes musicPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .music-label {
+      background: var(--paper); color: var(--ink); border: 1px solid var(--line);
+      border-radius: 999px; padding: .32rem .8rem; font-size: .78rem; font-weight: 600;
+      max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      box-shadow: var(--shadow);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 760px) {
+      .hero .wrap, .meet { grid-template-columns: 1fr; }
+      .collage { min-height: 360px; }
+      .collage .main-photo { height: 320px; width: 100%; }
       .stat-grid { grid-template-columns: 1fr 1fr; }
-      .goal-heading { align-items: flex-start; }
-      .growth-chart { height: 230px; }
-      .track-list li { grid-template-columns: 3.4rem 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem 0; }
+      .quotes { grid-template-columns: 1fr; }
+      .song-club-inner, .support-inner, .dashboard-lower, .legal-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+      .song-club-button { width: 100%; white-space: normal; text-align: center; }
+      .track-list li { grid-template-columns: 3.4rem 2.4rem minmax(0, 1fr); gap: .55rem; padding: .85rem .4rem; }
       .track-cover { width: 52px; height: 52px; }
-      .track-actions {
-        grid-column: 2 / -1;
-        grid-template-columns: minmax(0, 1fr) auto;
-        width: 100%;
-      }
+      .track-actions { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; width: 100%; }
       .seek-controls { grid-column: 1 / -1; }
       .seek-controls .play-button { flex: 1; }
       .timeline-control { grid-column: 1; }
       .youtube-button { grid-column: 2; min-width: 44px; padding-inline: .7rem; }
       .youtube-label { display: none; }
       .code-row { flex-direction: column; }
-      footer { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: .8rem; }
+      .nav-brand { font-size: 1.1rem; }
     }
-
     @media (max-width: 390px) {
-      .nav-links { gap: .65rem; }
-      .site-nav { font-size: .72rem; }
-      .socials, .stat-grid { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .nav-links a:not(.cta) { display: none; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .001ms !important; }
-    }
-
-    /* Floating daily-song player */
-    .music-float {
-      position: fixed;
-      left: 1.1rem;
-      top: 5rem;
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      gap: .55rem;
-    }
-    .music-btn {
-      width: 3.4rem;
-      height: 3.4rem;
-      border-radius: 50%;
-      background: var(--gold-strong);
-      border: 2px solid var(--gold);
-      font-size: 1.35rem;
-      line-height: 1;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      display: grid;
-      place-items: center;
-      animation: musicPulse 2.6s ease-in-out infinite;
-    }
-    .music-btn.playing { animation: none; }
-    @keyframes musicPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    .music-label {
-      background: var(--paper);
-      color: var(--ink);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: .32rem .8rem;
-      font-size: .78rem;
-      font-weight: 600;
-      max-width: 200px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      box-shadow: var(--shadow);
+      .strip-track { animation: none; }
     }
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Page navigation">
-    <a class="nav-logo-link" href="#artist-name" aria-label="Back to Jamie White">
-      <img class="nav-logo" src="assets/roots-reels-logo.jpg" alt="Roots &amp; Reels circular gold emblem" />
-    </a>
-    <div class="nav-links">
-      <a href="#releases">Releases</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
+    <div class="wrap">
+      <a class="nav-logo-link" href="#artist-name" aria-label="Back to Jamie White">
+        <img class="nav-logo" src="assets/roots-reels-logo.jpg" alt="Roots &amp; Reels circular gold emblem" />
+      </a>
+      <a class="nav-brand" href="#artist-name">Roots &amp; Reels</a>
+      <span class="nav-spacer"></span>
+      <div class="nav-links">
+        <a href="#releases">Releases</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+      <a class="cta" href="#releases">Listen</a>
     </div>
   </nav>
 
-  <aside class="code-panel" id="codePanel" aria-live="polite">
+<aside class="code-panel" id="codePanel" aria-live="polite">
     <strong>TikTok authorization code</strong>
     <div class="code-row">
       <input id="authCode" type="text" readonly aria-label="TikTok authorization code" />
@@ -682,12 +362,12 @@
   </aside>
 
   <main>
-    <section class="hero" aria-labelledby="artist-name">
-      <div class="wrap hero-content">
+    <header class="hero" aria-labelledby="artist-name">
+      <div class="wrap">
         <div class="hero-copy">
           <p class="brand-mark">Roots &amp; Reels</p>
-          <h1 id="artist-name">Jamie White</h1>
-          <p class="tagline">Country singer-songwriter — new original songs every week.</p>
+          <h1 id="artist-name">Jamie <em>White</em></h1>
+          <p class="tagline">Country singer-songwriter — new original songs every week, straight from a real life.</p>
           <div class="socials" aria-label="Listen and follow">
             <a href="https://www.youtube.com/@RootsReelsandFamily" target="_blank" rel="noopener noreferrer" aria-label="Visit Roots &amp; Reels on YouTube">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/><path fill="#fff" d="M9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
@@ -714,19 +394,43 @@
               Tip Jar
             </a>
           </div>
+
         </div>
-        <figure class="hero-photo-wrap">
-          <img class="hero-photo" src="assets/jamie-hero-porch.jpg" alt="Jamie White on a rustic wooden porch at golden hour with the Roots &amp; Reels emblem and name" />
-        </figure>
+        <div class="collage">
+          <img class="main-photo" src="assets/jamie-hero-porch.jpg" alt="Jamie White on a rustic porch at golden hour" />
+          <img class="second-photo" src="assets/jamie-portrait-pink.jpg" alt="Jamie White smiling portrait" />
+          <img class="badge" src="assets/roots-reels-logo.jpg" alt="Roots &amp; Reels emblem" />
+          <span class="sticker">New song every week 🎶</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <img src="assets/jamie-hero-porch.jpg" alt="" /><img src="assets/jamie-portrait-pink.jpg" alt="" />
+        <img src="assets/jamie-hero-porch.jpg" alt="" /><img src="assets/jamie-portrait-pink.jpg" alt="" />
+        <img src="assets/jamie-hero-porch.jpg" alt="" /><img src="assets/jamie-portrait-pink.jpg" alt="" />
+        <img src="assets/jamie-hero-porch.jpg" alt="" /><img src="assets/jamie-portrait-pink.jpg" alt="" />
+      </div>
+    </div>
+
+    <section class="block">
+      <div class="wrap meet">
+        <img src="assets/jamie-portrait-pink.jpg" alt="Jamie White — country singer-songwriter" />
+        <div>
+          <p class="section-kicker">Meet Jamie</p>
+          <h2 class="section-title">Songs from a real life</h2>
+          <p>I'm Jamie White — mama of two, country girl, and singer-songwriter. I write about losing everything, starting over, and the love that found me anyway.</p>
+          <p>Every week there's a new original song here first. This is my story, one song at a time.</p>
+          <p class="sig">— Jamie 🤠</p>
+        </div>
       </div>
     </section>
 
-    <section class="releases" id="releases" aria-labelledby="releases-title">
+    <section class="block releases" id="releases" aria-labelledby="releases-title">
       <div class="wrap">
-        <div class="section-intro">
-          <h2 id="releases-title">Latest releases</h2>
-          <p>Original songs from Jamie White, rooted in country storytelling.</p>
-        </div>
+        <p class="section-kicker">The music</p>
+        <h2 class="section-title" id="releases-title">Latest releases</h2>
         <ol class="track-list">
                     <li>
             <img class="track-cover" src="assets/gold-from-nothing-cover.jpg" alt="GOLD FROM NOTHING cover art" loading="lazy"><span class="track-number">01</span><span class="track-name">GOLD FROM NOTHING</span>
@@ -793,15 +497,15 @@
             </span>
           </li>
         </ol>
+
       </div>
     </section>
 
-    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+    <section class="block gallery" id="gallery" aria-labelledby="gallery-title">
       <div class="wrap">
-        <div class="section-intro">
-          <h2 id="gallery-title">Album gallery</h2>
-          <p>Every cover, every song — tap one to watch it on YouTube.</p>
-        </div>
+        <p class="section-kicker">Covers</p>
+        <h2 class="section-title" id="gallery-title">Album gallery</h2>
+        <p style="color:var(--muted);margin:0;">Every cover, every song — tap one to watch it on YouTube.</p>
         <div class="gallery-grid">
                     <a href="https://www.youtube.com/watch?v=dKwfJf8RQ0I" target="_blank" rel="noopener noreferrer" aria-label="Watch GOLD FROM NOTHING on YouTube">
             <figure style="margin:0"><img src="assets/gold-from-nothing-cover.jpg" alt="GOLD FROM NOTHING cover art" loading="lazy"><figcaption>GOLD FROM NOTHING</figcaption></figure>
@@ -828,10 +532,11 @@
             <figure style="margin:0"><img src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy"><figcaption>WHITE PICKET DREAMS</figcaption></figure>
           </a>
         </div>
+
       </div>
     </section>
 
-    <section class="song-club" aria-labelledby="song-club-title">
+<section class="song-club" aria-labelledby="song-club-title">
       <div class="wrap song-club-inner">
         <div>
           <h2 id="song-club-title">Join the Daily Song Club</h2>
@@ -841,7 +546,7 @@
       </div>
     </section>
 
-    <section class="support" aria-labelledby="support-title">
+<section class="support" aria-labelledby="support-title">
       <div class="wrap support-inner">
         <div class="support-copy">
           <h2 id="support-title">Support Roots &amp; Reels 💛</h2>
@@ -851,21 +556,23 @@
       </div>
     </section>
 
-        <section class="fanlove" aria-labelledby="fanlove-title">
+    <section class="block fanlove" aria-labelledby="fanlove-title">
       <div class="wrap">
-        <h2 id="fanlove-title">Fan love 💛</h2>
+        <p class="section-kicker">Listener love</p>
+        <h2 class="section-title" id="fanlove-title">Fan love 💛</h2>
         <p class="fanlove-text">The love y'all are showing these songs has me over the moon — so proud of how far this music has come, grateful beyond words that you think I deserve every bit of it, and hearing that I'm doing these songs justice... hell yeah, let's get it! Thank you for every listen. 💛</p>
+        <div class="quotes">
+          <div class="quote"><div class="stars">★★★★★</div><p>"SOOOOOOO PROUD OF YOU!!!"</p><p class="who">— Arin Lynn</p></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>"Your songs come straight from the heart. Keep going, girl!"</p><p class="who">— Ashley Smith</p></div>
+        </div>
       </div>
     </section>
 
-<section class="dashboard" id="dashboard" aria-labelledby="dashboard-title">
+    <section class="block dashboard" id="dashboard" aria-labelledby="dashboard-title">
       <div class="wrap">
-        <header class="dashboard-header">
-          <h2 id="dashboard-title">📊 Roots &amp; Reels Dashboard</h2>
-          <p class="dashboard-subheading">All my numbers in one place</p>
-          <p class="dashboard-updated">Last updated: October 3, 2026</p>
-        </header>
-
+        <p class="section-kicker">The journey</p>
+        <h2 class="section-title" id="dashboard-title">Roots &amp; Reels Dashboard</h2>
+        <p class="dash-sub">All my numbers in one place · Last updated: October 3, 2026</p>
         <div class="stat-grid" aria-label="Current audience and release statistics">
           <article class="stat-card">
             <p class="stat-label">YouTube subscribers</p>
@@ -875,6 +582,11 @@
           <article class="stat-card">
             <p class="stat-label">YouTube views, all time</p>
             <p class="stat-value">50.9K</p>
+            <p class="stat-caption">Oct 3</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-label">YouTube views, last 28 days</p>
+            <p class="stat-value">17,723</p>
             <p class="stat-caption">Oct 3</p>
           </article>
           <article class="stat-card">
@@ -910,12 +622,12 @@
           <article class="stat-card">
             <p class="stat-label">The dream</p>
             <p class="stat-value" style="font-size:1.6rem">Home for Mama 🏡</p>
-            caption">why we do this 💛</p>
+            <p class="stat-caption">why we do this 💛</p>
           </article>
-          <article class="stat-card stat-promo">
-            <img class="promo-cover" src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy" />
+          <article class="stat-card promo">
+            <img src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy" />
             <p class="stat-label">Next up 🎬</p>
-            <p class="stat-value promo-title">WHITE PICKET DREAMS</p>
+            <p class="stat-value">WHITE PICKET DREAMS</p>
             <p class="stat-caption">Full music video drops Saturday at noon 🎶</p>
           </article>
         </div>
@@ -950,7 +662,7 @@
       </div>
     </section>
 
-    <section class="legal" id="privacy" aria-labelledby="privacy-title">
+<section class="legal" id="privacy" aria-labelledby="privacy-title">
       <div class="wrap legal-grid">
         <div class="legal-title">
           <h2 id="privacy-title">Privacy Policy</h2>
@@ -976,13 +688,22 @@
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer>
-    <span class="footer-brand"><img class="footer-logo" src="assets/roots-reels-logo.jpg" alt="" />© <span id="year">2026</span> Jamie White</span>
+<footer>
+    <span class="fbrand"><img class="footer-logo" src="assets/roots-reels-logo.jpg" alt="" />© <span id="year">2026</span> Jamie White</span>
     <span class="footer-contact">Press: <a href="mailto:Rootsandreelsmusic@outlook.com">Rootsandreelsmusic@outlook.com</a></span>
     <span><a href="https://mailchi.mp/1d968bffd882/roots-reels-daily-song-club" target="_blank" rel="noopener noreferrer">Join the Song Club</a> · <a href="#dashboard">Dashboard</a> · <a href="#privacy">Privacy</a> · <a href="#terms">Terms</a></span>
   </footer>
+
+<div class="music-float" id="musicFloat">
+    <span class="music-label" id="musicLabel">🎶 Featured opener</span>
+    <button class="music-btn" id="musicBtn" aria-label="Play the featured song">
+      <span class="music-icon" id="musicIcon" aria-hidden="true">🎶</span>
+    </button>
+    <audio id="siteAudio" preload="none"></audio>
+  </div>
 
   <script>
     (function () {
@@ -1198,7 +919,7 @@
         var width = Math.max(260, Math.round(bounds.width));
         var height = Math.max(210, Math.round(bounds.height));
         var ratio = Math.max(1, window.devicePixelRatio || 1);
-        var styles = getComputedStyle(document.documentElement);
+        var styles = getComputedStyle(subscriberChart);
         var ink = styles.getPropertyValue("--ink").trim();
         var muted = styles.getPropertyValue("--muted").trim();
         var line = styles.getPropertyValue("--line").trim();
@@ -1278,13 +999,7 @@
       }
     }());
   </script>
-  <div class="music-float" id="musicFloat">
-    <span class="music-label" id="musicLabel">🎶 Featured opener</span>
-    <button class="music-btn" id="musicBtn" aria-label="Play the featured song">
-      <span class="music-icon" id="musicIcon" aria-hidden="true">🎶</span>
-    </button>
-    <audio id="siteAudio" preload="none"></audio>
-  </div>
+
   <script>
     (function () {
       /* Featured opener song (PRAYING FOR LAND): auto-starts (fading in) on the
@@ -1347,5 +1062,6 @@
       });
     }());
   </script>
+
 </body>
 </html>
