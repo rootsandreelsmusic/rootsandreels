@@ -1271,15 +1271,15 @@
     }());
   </script>
   <div class="music-float" id="musicFloat">
-    <span class="music-label" id="musicLabel">🎶 Today's pick</span>
-    <button class="music-btn" id="musicBtn" aria-label="Play today's song">
+    <span class="music-label" id="musicLabel">🎶 Featured opener</span>
+    <button class="music-btn" id="musicBtn" aria-label="Play the featured song">
       <span class="music-icon" id="musicIcon" aria-hidden="true">🎶</span>
     </button>
     <audio id="siteAudio" preload="none"></audio>
   </div>
   <script>
     (function () {
-      /* Daily rotating background song: auto-starts (fading in) on the
+      /* Featured opener song (PRAYING FOR LAND): auto-starts (fading in) on the
          visitor's first tap anywhere, per browser autoplay rules. */
       var SONGS = [
                 { title: "GOLD FROM NOTHING", file: "assets/gold-from-nothing.mp3" },
@@ -1295,16 +1295,14 @@
       var label = document.getElementById("musicLabel");
       var audio = document.getElementById("siteAudio");
       if (!btn || !audio) return;
-      var now = new Date();
-      var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
-      var song = SONGS[day % SONGS.length];
+            var song = SONGS.filter(function (s) { return s.title === "PRAYING FOR LAND"; })[0] || SONGS[0];
       audio.src = song.file;
       audio.volume = 0;
       label.textContent = "🎶 " + song.title;
       function setPlaying(playing) {
         btn.classList.toggle("playing", playing);
         icon.textContent = playing ? "⏸" : "🎶";
-        btn.setAttribute("aria-label", playing ? "Pause today's song" : "Play today's song");
+        btn.setAttribute("aria-label", playing ? "Pause the featured song" : "Play the featured song");
       }
       function fadeIn() {
         var v = 0;
