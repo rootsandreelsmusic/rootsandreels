@@ -861,34 +861,34 @@
         <header class="dashboard-header">
           <h2 id="dashboard-title">📊 Roots &amp; Reels Dashboard</h2>
           <p class="dashboard-subheading">All my numbers in one place</p>
-          <p class="dashboard-updated">Last updated: October 1, 2026</p>
+          <p class="dashboard-updated">Last updated: October 3, 2026</p>
         </header>
 
         <div class="stat-grid" aria-label="Current audience and release statistics">
           <article class="stat-card">
             <p class="stat-label">YouTube subscribers</p>
-            <p class="stat-value">75</p>
-            <p class="stat-caption">Oct 1 · +16 in the last 7 days</p>
+            <p class="stat-value">76</p>
+            <p class="stat-caption">Oct 3 · +28 in the last 28 days</p>
           </article>
           <article class="stat-card">
-            <p class="stat-label">YouTube views, September</p>
-            <p class="stat-value">17,352</p>
-            <p class="stat-caption">Oct 1</p>
+            <p class="stat-label">YouTube views, last 28 days</p>
+            <p class="stat-value">17,723</p>
+            <p class="stat-caption">Oct 3</p>
           </article>
           <article class="stat-card">
             <p class="stat-label">TikTok followers</p>
-            <p class="stat-value">624</p>
-            <p class="stat-caption">Sep 28 · 7,435 likes</p>
+            <p class="stat-value">627</p>
+            <p class="stat-caption">Oct 2</p>
           </article>
           <article class="stat-card">
             <p class="stat-label">Facebook followers</p>
-            <p class="stat-value">1,454</p>
-            <p class="stat-caption">Sep 29</p>
+            <p class="stat-value">1,429</p>
+            <p class="stat-caption">Oct 2</p>
           </article>
           <article class="stat-card">
             <p class="stat-label">Roots &amp; Reels Page followers</p>
-            <p class="stat-value">83</p>
-            <p class="stat-caption">Oct 1 · launched Sep 30 🌱</p>
+            <p class="stat-value">93</p>
+            <p class="stat-caption">Oct 3 · launched Sep 30 🌱</p>
           </article>
           <article class="stat-card">
             <p class="stat-label">Daily Song Club email members</p>
@@ -916,13 +916,13 @@
           <section class="dashboard-panel" aria-labelledby="goals-title">
             <h3 id="goals-title">Goal progress</h3>
             <div class="goal">
-              <div class="goal-heading"><strong>YouTube Partner: 500 subscribers</strong><span>75 of 500</span></div>
-              <div class="progress-track" role="progressbar" aria-label="YouTube Partner subscriber progress" aria-valuemin="0" aria-valuemax="500" aria-valuenow="75"><div class="progress-fill" style="width: 15%"></div></div>
+              <div class="goal-heading"><strong>YouTube Partner: 500 subscribers</strong><span>76 of 500</span></div>
+              <div class="progress-track" role="progressbar" aria-label="YouTube Partner subscriber progress" aria-valuemin="0" aria-valuemax="500" aria-valuenow="76"><div class="progress-fill" style="width: 15.2%"></div></div>
             </div>
             <div class="goal">
-              <div class="goal-heading"><strong>YouTube Partner: 3,000 watch hours</strong><span>45.1 of 3,000</span></div>
-              <div class="progress-track" role="progressbar" aria-label="YouTube Partner watch hours progress" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="45.1"><div class="progress-fill" style="width: 1.5033%"></div></div>
-              <p class="goal-caption">hours data September</p>
+              <div class="goal-heading"><strong>YouTube Partner: 3,000 watch hours</strong><span>47.6 of 3,000</span></div>
+              <div class="progress-track" role="progressbar" aria-label="YouTube Partner watch hours progress" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="47.6"><div class="progress-fill" style="width: 1.5867%"></div></div>
+              <p class="goal-caption">hours, last 28 days · Oct 3</p>
             </div>
             <div class="goal">
               <div class="goal-heading"><strong>Shorts path: 3M Shorts views</strong><span>4.6K of 3M</span></div>
@@ -934,7 +934,7 @@
           <section class="dashboard-panel" aria-labelledby="growth-title">
             <h3 id="growth-title">YouTube subscriber growth</h3>
             <div class="chart-shell">
-              <canvas class="growth-chart" id="subscriberChart" role="img" aria-label="YouTube subscribers grew from 66 on September 26 to 75 on October 1"></canvas>
+              <canvas class="growth-chart" id="subscriberChart" role="img" aria-label="YouTube subscribers grew from 66 on September 26 to 76 on October 3"></canvas>
               <p class="chart-caption">History builds daily — check back soon.</p>
             </div>
           </section>
@@ -1199,11 +1199,11 @@
         var padding = { top: 24, right: 25, bottom: 42, left: 42 };
         var plotWidth = width - padding.left - padding.right;
         var plotHeight = height - padding.top - padding.bottom;
-        var values = [66, 73, 74, 75];
-        var labels = ["Sep 26", "Sep 28", "Sep 29", "Oct 1"];
+        var values = [66, 73, 74, 75, 76];
+        var labels = ["Sep 26", "Sep 28", "Sep 29", "Oct 1", "Oct 3"];
         var minValue = 65;
-        var maxValue = 75;
-        var ticks = [65, 70, 75];
+        var maxValue = 80;
+        var ticks = [65, 70, 75, 80];
 
         subscriberChart.width = Math.round(width * ratio);
         subscriberChart.height = Math.round(height * ratio);
