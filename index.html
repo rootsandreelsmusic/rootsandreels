@@ -475,6 +475,8 @@
     }
     .dashboard-updated { margin: .45rem 0 0; color: var(--gold-strong); font-size: .86rem; font-weight: 600; }
     .stat-grid {
+
+
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
@@ -493,6 +495,8 @@
       font-variant-numeric: tabular-nums;
     }
     .stat-caption { margin: .45rem 0 0; color: var(--gold-strong); font-size: .78rem; }
+    .stat-promo .promo-cover { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; margin-bottom: .8rem; }
+    .stat-promo .promo-title { font-size: 1.6rem; }
     .dashboard-lower {
       display: grid;
       grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
@@ -908,7 +912,13 @@
           <article class="stat-card">
             <p class="stat-label">The dream</p>
             <p class="stat-value" style="font-size:1.6rem">Home for Mama 🏡</p>
-            <p class="stat-caption">why we do this 💛</p>
+            caption">why we do this 💛</p>
+          </article>
+          <article class="stat-card stat-promo">
+            <img class="promo-cover" src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy" />
+            <p class="stat-label">Next up 🎬</p>
+            <p class="stat-value promo-title">WHITE PICKET DREAMS</p>
+            <p class="stat-caption">Full music video drops Saturday at noon 🎶</p>
           </article>
         </div>
 
@@ -1194,7 +1204,7 @@
         var ink = styles.getPropertyValue("--ink").trim();
         var muted = styles.getPropertyValue("--muted").trim();
         var line = styles.getPropertyValue("--line").trim();
-        var gold = styles.getPropertyValue("--gold-strong").trim();
+        var chartLine = "#FF453A"; /* bright red so the growth line grabs attention */
         var context = subscriberChart.getContext("2d");
         var padding = { top: 24, right: 25, bottom: 42, left: 42 };
         var plotWidth = width - padding.left - padding.right;
@@ -1232,7 +1242,7 @@
           };
         });
 
-        context.strokeStyle = gold;
+        context.strokeStyle = chartLine;
         context.lineWidth = 3;
         context.beginPath();
         points.forEach(function (point, index) {
@@ -1245,7 +1255,7 @@
         context.stroke();
 
         points.forEach(function (point, index) {
-          context.fillStyle = gold;
+          context.fillStyle = "#0A84FF";
           context.beginPath();
           context.arc(point.x, point.y, 5, 0, Math.PI * 2);
           context.fill();
