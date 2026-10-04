@@ -250,9 +250,8 @@
     .stat-label { margin: 0; color: #d0bfa9; font-size: .82rem; }
     .stat-value { margin: .2rem 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #f7f1e2; font-variant-numeric: tabular-nums; }
     .stat-caption { margin: .45rem 0 0; color: #c9bda6; font-size: .75rem; }
-    .stat-card.promo { display: flex; flex-direction: column; position: relative; }
+    .stat-card.promo { display: flex; flex-direction: column; }
     .stat-card.promo .promo-cover { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; margin-bottom: .8rem; border: 2px solid var(--gold); }
-    .stat-card.promo .promo-logo { position: absolute; top: .9rem; right: .9rem; width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin: 0; box-shadow: 0 2px 10px rgba(0,0,0,.45); }
     .stat-card.promo .stat-value { font-size: 1.4rem; }
     .dashboard-lower { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(3rem, 7vw, 5rem); align-items: start; }
     .dashboard-panel h3 { margin: 0 0 1.4rem; font-size: clamp(1.45rem, 3vw, 2rem); color: #f7f1e2; }
@@ -310,10 +309,6 @@
       .collage { min-height: 360px; }
       .collage .main-photo { height: 320px; width: 100%; }
       .stat-grid { grid-template-columns: 1fr 1fr; }
-      .stat-card.promo { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1rem; }
-      .stat-card.promo .promo-cover { width: 112px; margin-bottom: 0; flex: none; }
-      .stat-card.promo .promo-text { flex: 1 1 auto; min-width: 0; }
-      .stat-card.promo .promo-logo { position: static; width: 60px; height: 60px; margin-left: auto; flex: none; }
       .quotes { grid-template-columns: 1fr; }
       .song-club-inner, .support-inner, .dashboard-lower, .legal-grid { grid-template-columns: 1fr; gap: 1.3rem; }
       .song-club-button { width: 100%; white-space: normal; text-align: center; }
@@ -331,8 +326,6 @@
     }
     @media (max-width: 390px) {
       .stat-grid { grid-template-columns: 1fr; }
-      .stat-card.promo .promo-cover { width: 92px; }
-      .stat-card.promo .promo-logo { width: 52px; height: 52px; }
       .nav-links a:not(.cta) { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -631,11 +624,18 @@
           </article>
           <article class="stat-card promo">
             <img class="promo-cover" src="assets/white-picket-dreams-cover.jpg" alt="WHITE PICKET DREAMS cover art" loading="lazy" />
-            <img class="promo-logo" src="assets/roots-reels-logo.jpg" alt="Roots &amp; Reels gold guitar logo" loading="lazy" />
             <div class="promo-text">
               <p class="stat-label">Out now 🎬</p>
               <p class="stat-value">WHITE PICKET DREAMS</p>
               <p class="stat-caption">Full music video is live now 🎶</p>
+            </div>
+          </article>
+          <article class="stat-card promo">
+            <img class="promo-cover" src="assets/bringing-you-home-cover.jpg" alt="BRINGING YOU HOME cover art" loading="lazy" />
+            <div class="promo-text">
+              <p class="stat-label">Next drop 🎶</p>
+              <p class="stat-value">BRINGING YOU HOME</p>
+              <p class="stat-caption">Drops Wednesday at noon 💛</p>
             </div>
           </article>
         </div>
